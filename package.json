@@ -1,23 +1,45 @@
 {
-  "name": "design-system-component-library-team-batman",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@smartive-education/design-system-component-library-team-batman",
+  "version": "0.0.0-development",
+  "description": "Design System Component Library",
+  "homepage": "https://ost-cas-fee-adv-23-24.github.io/design-system-component-library-team-batman",
+  "license": "MIT",
+  "author": "OST Fachhochschule - Team Batman",
+  "contributors": [
+    {
+      "name": "Albin Hoti",
+      "url": "https://github.com/onivue"
+    },
+    {
+      "name": "Ricardo Vögeli",
+      "url": "https://github.com/ricardovoegeli"
+    }
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "build-storybook": "storybook build",
+    "clean:dist": "del-cli dist -f",
+    "format": "prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "updates": "npx npm-check-updates --interactive --format group"
+  },
+  "lint-staged": {
+    "*.{css,mdx,json}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --max-warnings 0",
+      "bash -c tsc --noEmit"
+    ]
   },
   "dependencies": {
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "clsx": "^2.0.0",
-    "eslint": "8.49.0",
-    "eslint-config-next": "13.4.19",
+    "clsx": "2.0.0",
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "18.2.0",
@@ -26,15 +48,23 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.4.1",
-    "@storybook/addon-interactions": "^7.4.1",
-    "@storybook/addon-links": "^7.4.1",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.4.1",
-    "@storybook/nextjs": "^7.4.1",
-    "@storybook/react": "^7.4.1",
-    "@storybook/testing-library": "^0.2.0",
-    "eslint-plugin-storybook": "^0.6.13",
-    "storybook": "^7.4.1"
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@smartive/eslint-config": "^3.2.0",
+    "@storybook/addon-essentials": "7.4.1",
+    "@storybook/addon-interactions": "7.4.1",
+    "@storybook/addon-links": "7.4.1",
+    "@storybook/addon-onboarding": "1.0.8",
+    "@storybook/blocks": "7.4.1",
+    "@storybook/nextjs": "7.4.1",
+    "@storybook/react": "7.4.1",
+    "@storybook/testing-library": "0.2.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-storybook": "0.6.13",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "storybook": "7.4.1"
   }
 }

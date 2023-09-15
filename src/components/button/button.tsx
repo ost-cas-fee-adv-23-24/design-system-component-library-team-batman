@@ -6,10 +6,6 @@ interface ButtonProps {
    */
   primary?: boolean;
   /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
    * How large should the button be?
    */
   size?: 'small' | 'medium' | 'large';
@@ -26,7 +22,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
+export const Button = ({ primary = false, size = 'medium', label, ...props }: ButtonProps) => {
   const mode = primary ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800';
   const sizeClasses = {
     small: 'px-2 py-1 text-sm',
