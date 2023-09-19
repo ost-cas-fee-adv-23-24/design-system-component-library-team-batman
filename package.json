@@ -1,5 +1,5 @@
 {
-  "name": "@smartive-education/design-system-component-library-team-batman",
+  "name": "@ost-cas-fee-adv-23-24/design-system-component-library-team-batman",
   "version": "0.0.0-development",
   "description": "Design System Component Library",
   "homepage": "https://ost-cas-fee-adv-23-24.github.io/design-system-component-library-team-batman",
@@ -12,10 +12,25 @@
     },
     {
       "name": "Ricardo Vögeli",
-      "url": "https://github.com/ricardovoegeli"
+      "url": "https://github.com/risuiar2023"
     }
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/esm/components/index.js",
+      "require": "./dist/cjs/components/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./tailwind.config.ts": "./tailwind.config.ts"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "tailwind.config.ts"
+  ],
   "scripts": {
+    "build": "npm run clean:dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "build-storybook": "storybook build",
     "clean:dist": "del-cli dist -f",
     "format": "prettier . --write",
@@ -32,6 +47,11 @@
     "*.{ts,tsx}": [
       "eslint --max-warnings 0",
       "bash -c tsc --noEmit"
+    ]
+  },
+  "release": {
+    "branches": [
+      "main"
     ]
   },
   "dependencies": {
@@ -59,6 +79,7 @@
     "@storybook/nextjs": "7.4.1",
     "@storybook/react": "7.4.1",
     "@storybook/testing-library": "0.2.0",
+    "del-cli": "5.1.0",
     "eslint": "^8.49.0",
     "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-storybook": "0.6.13",
@@ -67,5 +88,8 @@
     "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.5",
     "storybook": "7.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
