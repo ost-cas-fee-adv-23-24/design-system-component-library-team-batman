@@ -6,7 +6,7 @@
 
 <div align="center">
   <a href="https://ost-cas-fee-adv-23-24.github.io/design-system-component-library-team-batman">
-    <img src="docs/assets/team-batman-logo.jpeg" alt="Logo" width="150" height="150">
+    <img src="src/docs/assets/team-batman-logo.jpeg" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">TEAM BATMAN</h3>
