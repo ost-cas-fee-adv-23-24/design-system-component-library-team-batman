@@ -1,0 +1,19 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "workbench.colorCustomizations": {
+    "[Ayu Mirage Bordered]": {
+      "activityBar.activeBorder": "#6a13a8",
+      "activityBar.activeBackground": "#3b204e",
+      "activityBarBadge.background": "#a931ff",
+      "activityBarBadge.foreground": "#ffffff",
+      "titleBar.activeBackground": "#6a13a8",
+      "titleBar.inactiveBackground": "#6a13a8",
+      "titleBar.activeForeground": "#d9d9d9",
+      "titleBar.inactiveForeground": "#d9d9d9",
+      "statusBar.background": "#6a13a8",
+      "statusBar.foreground": "#d9d9d9"
+    }
+  }
+}

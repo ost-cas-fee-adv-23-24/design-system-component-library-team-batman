@@ -9,15 +9,19 @@
     <img src="src/docs/assets/team-batman-logo.jpeg" alt="Logo" width="150" height="150">
   </a>
 
-  <h3 align="center">TEAM BATMAN</h3>
-
 [Storybook](https://ost-cas-fee-adv-23-24.github.io/design-system-component-library-team-batman)
 
 </div>
 
 # Project: Design System Component Library
 
-TODO: A brief description of what this project does.
+This project is a design system component library built with React, TypeScript & Tailwind.
+
+It is a project for the CAS Frontend Engineering Advanced course at the OST. The goal of this project is to create a design system component library that can be used in other projects.
+
+## Overview
+
+<img src="src/docs/assets/file-structure.png" alt="Logo" width="100%" height="auto">
 
 ## Getting Started
 

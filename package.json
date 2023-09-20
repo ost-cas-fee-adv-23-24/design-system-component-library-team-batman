@@ -30,9 +30,11 @@
     "tailwind.config.ts"
   ],
   "scripts": {
-    "build": "npm run clean:dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
-    "build-storybook": "storybook build",
-    "clean:dist": "del-cli dist -f",
+    "build": "npm run build:clear && npm run build:js && npm run build:tailwind",
+    "build:clear": "del-cli ./dist -f",
+    "build:js": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "build:storybook": "storybook build",
+    "build:tailwind": "tailwindcss -i ./src/components/style.css -o ./dist/style.css --minify && cp ./tailwind.config.ts ./dist",
     "format": "prettier . --write",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -68,9 +70,9 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@smartive/eslint-config": "^3.2.0",
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
+    "@smartive/eslint-config": "3.2.0",
     "@storybook/addon-essentials": "7.4.1",
     "@storybook/addon-interactions": "7.4.1",
     "@storybook/addon-links": "7.4.1",
@@ -80,13 +82,14 @@
     "@storybook/react": "7.4.1",
     "@storybook/testing-library": "0.2.0",
     "del-cli": "5.1.0",
-    "eslint": "^8.49.0",
-    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint": "8.49.0",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-check-file": "2.6.2",
     "eslint-plugin-storybook": "0.6.13",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3",
-    "prettier-plugin-packagejson": "^2.4.5",
+    "husky": "8.0.3",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "prettier-plugin-packagejson": "2.4.5",
     "storybook": "7.4.1"
   },
   "publishConfig": {
