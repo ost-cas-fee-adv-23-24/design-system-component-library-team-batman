@@ -33,7 +33,10 @@
     "./style.css": "./dist/style.css",
     "./tailwind.config.ts": "./dist/tailwind.config.ts"
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
     "build": "npm run build:clear && npm run build:js && npm run build:tailwind",
     "build:clear": "del-cli ./dist -f",
