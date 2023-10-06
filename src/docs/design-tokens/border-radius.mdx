@@ -1,0 +1,22 @@
+import { Meta, Unstyled } from '@storybook/blocks';
+
+<Meta title="Design-Tokens/Border-Radius" />
+
+# Border-Radius
+
+<Unstyled>
+  <div className="grid w-fit grid-cols-3 gap-s rounded-s bg-base-100 p-s mumble-font-label-m">
+    <label>none</label>
+    <span className="text-accent-500">0px</span>
+    <div className="h-xxl w-xxl rounded-none border-2 border-primary-500" />
+
+    <label>s</label>
+    <span className="text-accent-500">8px</span>
+    <div className="h-xxl w-xxl border-2 border-primary-500 rounded-s" />
+
+    <label>m</label>
+    <span className="text-accent-500">16px</span>
+    <div className="h-xxl w-xxl border-2 border-primary-500 rounded-m" />
+
+  </div>
+</Unstyled>

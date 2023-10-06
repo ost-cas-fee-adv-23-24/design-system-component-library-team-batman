@@ -10,7 +10,7 @@ const config = {
   trailingComma: 'all',
   bracketSameLine: false,
   arrowParens: 'always',
-  plugins: ['prettier-plugin-packagejson'],
+  plugins: ['prettier-plugin-packagejson', 'prettier-plugin-tailwindcss'],
 };
 
 module.exports = config;
