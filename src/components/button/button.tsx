@@ -22,12 +22,13 @@ interface ButtonProps {
    */
   disabled?: boolean,
 }
-
 /**
  * Primary UI component for user interaction
  */
-const buttonClasses = 'w-full border border-solid border-slate-200 rounded-md text-white text-base outline-none active:border-4 leading-none disabled:pointer-events-none disabled:border-1 disabled:opacity-75'
 
+/* RVO ToDo add Icons */
+
+const buttonClasses = 'w-full border border-primary-500 rounded-md text-white text-base disabled:pointer-events-none disabled:border-1 disabled:opacity-75 active:border-4 outline-none'
 export const Button = ({ 
   color = 'primary', 
   size = 'medium', 
@@ -37,35 +38,26 @@ export const Button = ({
  }: ButtonProps) => {
 
     const sizeClasses = {
-    small: {
-      text: 'text-sm',
-      container: 'px-2 py-1',
-    },
-    medium: {
-      text: 'text-base',
-      container: 'px-4 py-2',
-    },
-    large: {
-      text: 'text-lg',
-      container: 'px-8 py-4',
-    },
+    small: 'text-sm p-2',
+    medium: 'text-base',
+    large: 'text-lg',
   }[size];
 
   const colorClasses = {
-    primary: 'bg-violet-600 focus:border-violet-200 hover:bg-violet-700',
-    secondary: 'bg-slate-600 focus:border-slate-200 hover:bg-slate-700',
-    gradient: 'bg-gradient-to-r from-pink-500 to-violet-600 focus:border-violet-200 hover:bg-gradient-to-r hover:from-pink-600 hover:to-violet-700',
+    primary: 'bg-primary-600 focus:border-primary-200 hover:bg-primary-700',
+    secondary: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
+    gradient: 'mumble-gradient',
   }[color]
-
+console.log(colorClasses)
   return (
       <button
-        type="button" 
+        type="button"
         aria-label={label}
         onClick={onClick}
         disabled={disabled}
         className={clsx(buttonClasses, colorClasses)}>
-          <div className={`flex place-content-center items-center ${sizeClasses.container}`}>
-            <div className={`fwhitespace-nowrap ${sizeClasses.text}`}>{label}</div>
+          <div className='flex place-content-center items-center'>
+            <div className={`fwhitespace-nowrap ${sizeClasses}`}>{label}</div>
           </div>
       </button>
   );
