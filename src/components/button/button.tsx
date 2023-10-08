@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { Icon } from '../icon';
+
 interface ButtonProps {
   /**
    * Button colors
@@ -44,9 +46,18 @@ export const Button = ({
   }[size];
 
   const colorClasses = {
-    primary: 'bg-primary-600 focus:border-primary-200 hover:bg-primary-700',
-    secondary: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
-    gradient: 'mumble-gradient',
+    primary: {
+      button: 'bg-primary-600 focus:border-primary-200 hover:bg-primary-700',
+      icon: 'fill-primary-100',
+    },
+    secondary: {
+      button: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
+      icon: 'fill-primary-200',
+  },
+    gradient: {
+      button: 'mumble-gradient',
+    icon: 'fill-primary-100',
+  },
   }[color]
 console.log(colorClasses)
   return (
@@ -55,9 +66,10 @@ console.log(colorClasses)
         aria-label={label}
         onClick={onClick}
         disabled={disabled}
-        className={clsx(buttonClasses, colorClasses)}>
+        className={clsx(buttonClasses, colorClasses.button)}>
           <div className='flex place-content-center items-center'>
             <div className={`fwhitespace-nowrap ${sizeClasses}`}>{label}</div>
+            <Icon size='s' variant='mumble' className={colorClasses.icon}/>
           </div>
       </button>
   );
