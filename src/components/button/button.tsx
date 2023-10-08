@@ -28,7 +28,6 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 
-/* RVO ToDo add Icons */
 
 const buttonClasses = 'w-full border border-primary-500 rounded-md text-white text-base disabled:pointer-events-none disabled:border-1 disabled:opacity-75 active:border-4 outline-none px-s'
 export const Button = ({ 
@@ -48,15 +47,12 @@ export const Button = ({
   const colorClasses = {
     primary: {
       button: 'bg-primary-600 focus:border-primary-200 hover:bg-primary-700',
-      icon: 'fill-primary-100',
     },
     secondary: {
       button: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
-      icon: 'fill-primary-100',
     },
     gradient: {
       button: 'mumble-gradient',
-      icon: 'fill-primary-100',
     },
   }[color]
 console.log(colorClasses)
