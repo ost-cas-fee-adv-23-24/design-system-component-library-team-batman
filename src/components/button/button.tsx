@@ -55,7 +55,7 @@ export const Button = ({
       button: 'mumble-gradient',
     },
   }[color]
-console.log(colorClasses)
+  
   return (
       <button
         type="button"
