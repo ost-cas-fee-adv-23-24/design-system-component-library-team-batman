@@ -30,7 +30,7 @@ interface ButtonProps {
 
 /* RVO ToDo add Icons */
 
-const buttonClasses = 'w-full border border-primary-500 rounded-md text-white text-base disabled:pointer-events-none disabled:border-1 disabled:opacity-75 active:border-4 outline-none'
+const buttonClasses = 'w-full border border-primary-500 rounded-md text-white text-base disabled:pointer-events-none disabled:border-1 disabled:opacity-75 active:border-4 outline-none px-s'
 export const Button = ({ 
   color = 'primary', 
   size = 'medium', 
@@ -52,12 +52,12 @@ export const Button = ({
     },
     secondary: {
       button: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
-      icon: 'fill-primary-200',
-  },
+      icon: 'fill-primary-100',
+    },
     gradient: {
       button: 'mumble-gradient',
-    icon: 'fill-primary-100',
-  },
+      icon: 'fill-primary-100',
+    },
   }[color]
 console.log(colorClasses)
   return (
@@ -69,7 +69,7 @@ console.log(colorClasses)
         className={clsx(buttonClasses, colorClasses.button)}>
           <div className='flex place-content-center items-center'>
             <div className={`fwhitespace-nowrap ${sizeClasses}`}>{label}</div>
-            <Icon size='s' variant='mumble' className={colorClasses.icon}/>
+            <Icon size='s' variant='mumble' className={'ml-s fill-primary-100'}/>
           </div>
       </button>
   );
