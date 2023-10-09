@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
-import { cn } from 'src/utils/tailwind';
+import { cn } from '../../utils/tailwind';
 
-export interface TIconProps extends ComponentProps<'svg'> {
+export interface IIconProps extends ComponentProps<'svg'> {
   /**
    * variant of the icon
    */
@@ -36,7 +36,7 @@ export interface TIconProps extends ComponentProps<'svg'> {
   size?: 's' | 'm' | 'l';
 }
 
-export const Icon = ({ size = 'm', variant, className, ...rest }: TIconProps) => {
+export const Icon = ({ size = 'm', variant, className, ...rest }: IIconProps) => {
   const style = cn(
     'fill-base-600',
     size === 's' && 'w-s h-s',
