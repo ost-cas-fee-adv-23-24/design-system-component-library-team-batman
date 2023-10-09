@@ -1,18 +1,13 @@
 import clsx from 'clsx';
-
-interface ButtonProps {
+interface IconButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
-  primary?: boolean;
+  children: JSX.Element;
   /**
-   * How large should the button be?
+   * Optional send custom classes
    */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
+  classNames?: string,
   /**
    * Optional click handler
    */
@@ -22,17 +17,10 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const IconButton = ({ primary = false, size = 'medium', label, ...props }: ButtonProps) => {
-  const mode = primary ? 'bg-primary-500 text-white' : 'bg-base-300 text-base-800';
-  const sizeClasses = {
-    small: 'px-2 py-1 text-sm',
-    medium: 'px-3 py-2 text-base',
-    large: 'px-4 py-3 text-lg',
-  }[size];
-
+export const IconButton = ({ children, classNames, onClick, }: IconButtonProps) => {
   return (
-    <button type="button" className={clsx(sizeClasses, mode)} {...props}>
-      {label}
-    </button>
+    <div className={clsx(classNames, "cursor-pointer")} onClick={onClick}>
+      {children}
+    </div>
   );
 };
