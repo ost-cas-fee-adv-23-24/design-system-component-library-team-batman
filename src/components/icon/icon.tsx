@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { cn } from 'src/utils/tailwind';
+import { cn } from '../../utils/tailwind';
 
 export interface IIconProps extends ComponentProps<'svg'> {
   /**
