@@ -4,6 +4,13 @@ import { Meta, Unstyled } from '@storybook/blocks';
 
 # Colors
 
+We use Tailwind color palettes but assign them unique names, simplifying the process of creating themes.  
+**primary** is the main brand color  
+**accent** adds a distinct accent color to the application  
+**base** serves as the default color for text, icons, backgrounds, borders, and secondary elements
+
+more information: [https://tailwindcss.com/docs/customizing-colors](https://tailwindcss.com/docs/customizing-colors)
+
 <div className="bg-base-200 p-s rounded-s">
 
 ## Black & White
@@ -171,6 +178,12 @@ import { Meta, Unstyled } from '@storybook/blocks';
 </Unstyled>
 
 ## Gradients
+
+For gradients we use custom generated classes with the plugin functionality in tailwind.config
+
+- `mumble-gradient`
+- `mumble-gradient-hover`
+- `mumble-gradient-focus`
 
 <Unstyled>
   <div className="grid gap-l">
