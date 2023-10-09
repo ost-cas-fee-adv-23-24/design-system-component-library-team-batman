@@ -20,15 +20,16 @@ const config = {
         'src/components/**/': 'KEBAB_CASE',
       },
     ],
+    'react/forbid-component-props': ['warn', { forbid: ['style'] }],
   },
-
   settings: {
     'import/resolver': {
       typescript: true,
     },
   },
+  parser: '@typescript-eslint/parser',
   plugins: ['check-file'],
-  extends: ['plugin:storybook/recommended', '@smartive/eslint-config', 'plugin:import/typescript'],
+  extends: ['plugin:storybook/recommended', '@smartive/eslint-config/react', 'plugin:import/typescript'],
 };
 
 module.exports = config;

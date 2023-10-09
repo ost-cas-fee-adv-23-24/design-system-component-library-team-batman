@@ -13,12 +13,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }
