@@ -1,54 +1,22 @@
 import clsx from 'clsx';
 
-import { Icon } from '../icon';
+import { Icon, IIconProps } from '../icon';
 
-interface IconButtonProps {
+ interface IconButtonProps extends IIconProps {
   /**
-   * Is this the principal call to action on the page?
-   */
-  /* ToDo import interfaces from icon */
-  variant: 
-  | 'mumble'
-  | 'repost'
-  | 'share'
-  | 'time'
-  | 'profile'
-  | 'eye'
-  | 'fullscreen'
-  | 'settings'
-  | 'send'
-  | 'logout'
-  | 'upload'
-  | 'edit'
-  | 'location'
-  | 'calendar'
-  | 'checkmark'
-  | 'cancel'
-  | 'heart'
-  | 'heart-filled'
-  | 'reply'
-  | 'reply-filled'
-  | 'arrow-up'
-  | 'arrow-down'
-  | 'arrow-left'
-  | 'arrow-right';
-  /**
-   * Optional send custom classes
-   */
-  classNames?: string,
+     * Optional send custom classes
+     */
+   classNames?: string,
   /**
    * Optional click handler
    */
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const IconButton = ({ variant, classNames, onClick, }: IconButtonProps) => {
+export const IconButton = ({ variant, size, classNames, onClick, }: IconButtonProps) => {
   return (
     <div className={clsx(classNames, "cursor-pointer rounded-m p-xs")} onClick={onClick}>
-      <Icon variant={variant} />
+      <Icon variant={variant} size={size} />
     </div>
   );
 };

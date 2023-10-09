@@ -24,6 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const Send: Story = {
   args: {
     variant: 'send',
-    classNames: 'hover:bg-primary-100'
+    classNames: 'hover:bg-primary-100',
+    size: 'l',
   },
 };
