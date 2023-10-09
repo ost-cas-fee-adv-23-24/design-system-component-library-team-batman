@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { ComponentProps } from 'react';
+import { cn } from '../../../utils/tailwind';
 
 export interface ILabelProps extends ComponentProps<'label'> {
   /**
@@ -13,7 +13,8 @@ export interface ILabelProps extends ComponentProps<'label'> {
 }
 
 export const Label = ({ children, size, className, ...rest }: ILabelProps) => {
-  const style = clsx(
+  const style = cn(
+    'text-base-600',
     size === 's' && 'mumble-font-label-s',
     size === 'm' && 'mumble-font-label-m',
     size === 'l' && 'mumble-font-label-l',

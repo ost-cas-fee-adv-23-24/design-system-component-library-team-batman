@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { ComponentProps, ElementType } from 'react';
+import { cn } from '../../../utils/tailwind';
 
 export interface IHeadingProps extends ComponentProps<'h1' | 'h2' | 'h3' | 'h4'> {
   /**
@@ -19,7 +19,8 @@ export interface IHeadingProps extends ComponentProps<'h1' | 'h2' | 'h3' | 'h4'>
 export const Heading = ({ children, level, visualLevel, className, ...rest }: IHeadingProps) => {
   const CustomTag = `h${level}` as ElementType;
   const currentVisualLevel = visualLevel || level;
-  const style = clsx(
+  const style = cn(
+    'text-base-600',
     currentVisualLevel === 1 && 'mumble-font-h1',
     currentVisualLevel === 2 && 'mumble-font-h2',
     currentVisualLevel === 3 && 'mumble-font-h3',
