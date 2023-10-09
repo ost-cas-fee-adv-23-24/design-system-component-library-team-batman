@@ -1,22 +1,34 @@
-import clsx from 'clsx';
+import cn from 'clsx';
 
 import { Icon, IIconProps } from '../icon';
 
- interface IconButtonProps extends IIconProps {
+ interface IIconButtonProps {
+  /**
+   * variant of the icon
+   */
+  variant: IIconProps["variant"],
   /**
      * Optional send custom classes
      */
-   classNames?: string,
+   className?: string,
+  /**
+   * Optional disable button
+   */
+  disabled?: boolean;
   /**
    * Optional click handler
    */
-  onClick?: () => void;
+  onClick?: () => React.ComponentProps<'button'>['onClick'];
 }
 
-export const IconButton = ({ variant, size, classNames, onClick, }: IconButtonProps) => {
+export const IconButton = ({ variant, className, onClick, }: IIconButtonProps) => {
   return (
-    <div className={clsx(classNames, "cursor-pointer rounded-m p-xs")} onClick={onClick}>
-      <Icon variant={variant} size={size} />
-    </div>
+    <button 
+      className={cn("cursor-pointer rounded-m p-xs hover:bg-primary-100", className)} 
+      aria-label={variant} 
+      onClick={onClick}
+    >
+      <Icon variant={variant} />
+    </button>
   );
 };

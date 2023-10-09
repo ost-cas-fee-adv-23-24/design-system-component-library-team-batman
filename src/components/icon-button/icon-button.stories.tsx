@@ -4,7 +4,7 @@ import { IconButton } from './icon-button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Example/IconButton',
+  title: 'Component/IconButton',
   component: IconButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -24,7 +24,5 @@ type Story = StoryObj<typeof meta>;
 export const Send: Story = {
   args: {
     variant: 'send',
-    classNames: 'hover:bg-primary-100',
-    size: 'l',
   },
 };
