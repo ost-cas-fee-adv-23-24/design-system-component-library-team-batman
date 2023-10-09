@@ -4,13 +4,12 @@
     "target": "ES6",
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outDir": "dist/cjs",
     "rootDir": "src",
     "baseUrl": ".",
     "esModuleInterop": true,
     "declaration": true,
+    "outDir": "dist/cjs",
     "declarationDir": "dist/types"
   },
-  "include": ["src/components/**/*.ts", "src/components/**/*.tsx"],
-  "exclude": ["node_modules", "src/components/**/*.stories.tsx", "src/components/**/*.stories.ts"]
+  "files": ["src/index.ts"]
 }

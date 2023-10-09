@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { ComponentProps } from 'react';
+import { cn } from '../../../utils/tailwind';
 
 export interface IParagraphProps extends ComponentProps<'p'> {
   /**
@@ -13,7 +13,12 @@ export interface IParagraphProps extends ComponentProps<'p'> {
 }
 
 export const Paragraph = ({ children, size, className, ...rest }: IParagraphProps) => {
-  const style = clsx(size === 'm' && 'mumble-font-paragraph-m', size === 'l' && 'mumble-font-paragraph-l', className);
+  const style = cn(
+    'text-base-600',
+    size === 'm' && 'mumble-font-paragraph-m',
+    size === 'l' && 'mumble-font-paragraph-l',
+    className,
+  );
 
   return (
     <p className={style} {...rest}>
