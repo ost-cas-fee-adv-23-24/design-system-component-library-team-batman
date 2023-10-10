@@ -39,6 +39,7 @@ const config: Config = {
       bold: '700',
     },
     spacing: {
+      0: '0px',
       xxs: '4px',
       xs: '8px',
       s: '16px',
