@@ -16,8 +16,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Send: Story = {
+export const Mumble: Story = {
   args: {
-    variant: 'send',
+    variant: 'mumble',
   },
 };

@@ -24,11 +24,11 @@ import { Icon, IIconProps } from '../icon';
 export const IconButton = ({ variant, className, onClick, }: IIconButtonProps) => {
   return (
     <button 
-      className={cn("cursor-pointer rounded-m p-xs hover:bg-primary-100", className)} 
+      className={cn("cursor-pointer rounded-full p-s bg-base-600 transition-color duration-300 hover:bg-base-700 focus:outline-4 focus:bg-base-700 hover:outline-[3px] outline-offset-0", className)} 
       aria-label={variant} 
       onClick={onClick}
     >
-      <Icon variant={variant} size='s'/>
+      <Icon variant={variant} size='s' className='fill-white'/>
     </button>
   );
 };
