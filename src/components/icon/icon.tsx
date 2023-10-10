@@ -36,12 +36,12 @@ export interface IIconProps extends ComponentProps<'svg'> {
   size?: 's' | 'm' | 'l';
 }
 
-export const Icon = ({ size = 'm', variant, className, ...rest }: IIconProps) => {
+export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) => {
   const style = cn(
     'fill-base-600',
-    size === 's' && 'w-s h-s',
-    size === 'm' && 'w-m h-m',
-    size === 'l' && 'w-l h-l',
+    size === 's' && 'h-s w-s',
+    size === 'm' && 'h-m w-m',
+    size === 'l' && 'h-l w-l',
     className,
   );
 

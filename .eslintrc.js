@@ -21,6 +21,7 @@ const config = {
       },
     ],
     'react/forbid-component-props': ['warn', { forbid: ['style'] }],
+    'react/no-children-prop': 0,
   },
   settings: {
     'import/resolver': {
