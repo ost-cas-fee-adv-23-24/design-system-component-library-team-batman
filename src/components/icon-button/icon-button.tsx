@@ -9,7 +9,7 @@ import { Icon, IIconProps } from '../icon';
   variant: IIconProps["variant"],
   /**
      * Optional send custom classes
-     */
+   */
    className?: string,
   /**
    * Optional disable button
@@ -28,7 +28,7 @@ export const IconButton = ({ variant, className, onClick, }: IIconButtonProps) =
       aria-label={variant} 
       onClick={onClick}
     >
-      <Icon variant={variant} />
+      <Icon variant={variant} size='s'/>
     </button>
   );
 };
