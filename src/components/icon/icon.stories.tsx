@@ -46,9 +46,49 @@ export const ChangeSizeByClass: Story = {
   },
 };
 
+export const AnimatedSettings: Story = {
+  name: '✨ animated settings',
+  render: (args) => (
+    <div className="duration-300 hover:rotate-90">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'settings',
+    size: 'l',
+  },
+};
+
+export const AnimatedLogut: Story = {
+  name: '✨ animated logout',
+  render: (args) => (
+    <div className="group">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'logout-animated',
+    size: 'l',
+  },
+};
+
 export const Mumble: Story = {
   args: {
     variant: 'mumble',
+    size: 'l',
+  },
+};
+
+export const Logout: Story = {
+  args: {
+    variant: 'logout',
+    size: 'l',
+  },
+};
+
+export const Settings: Story = {
+  args: {
+    variant: 'settings',
     size: 'l',
   },
 };
@@ -95,23 +135,9 @@ export const Fullscreen: Story = {
   },
 };
 
-export const Settings: Story = {
-  args: {
-    variant: 'settings',
-    size: 'l',
-  },
-};
-
 export const Send: Story = {
   args: {
     variant: 'send',
-    size: 'l',
-  },
-};
-
-export const Logout: Story = {
-  args: {
-    variant: 'logout',
     size: 'l',
   },
 };

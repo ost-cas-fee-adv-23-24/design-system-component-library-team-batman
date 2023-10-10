@@ -16,6 +16,7 @@ export interface IIconProps extends ComponentProps<'svg'> {
     | 'settings'
     | 'send'
     | 'logout'
+    | 'logout-animated'
     | 'upload'
     | 'edit'
     | 'location'
@@ -36,12 +37,12 @@ export interface IIconProps extends ComponentProps<'svg'> {
   size?: 's' | 'm' | 'l';
 }
 
-export const Icon = ({ size = 'm', variant, className, ...rest }: IIconProps) => {
+export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) => {
   const style = cn(
     'fill-base-600',
-    size === 's' && 'w-s h-s',
-    size === 'm' && 'w-m h-m',
-    size === 'l' && 'w-l h-l',
+    size === 's' && 'h-s w-s',
+    size === 'm' && 'h-m w-m',
+    size === 'l' && 'h-l w-l',
     className,
   );
 
@@ -166,6 +167,16 @@ export const Icon = ({ size = 'm', variant, className, ...rest }: IIconProps) =>
                 <path fill="#fff" d="M0 0H16V16H0z" />
               </clipPath>
             </defs>
+          </>
+        );
+      case 'logout-animated':
+        return (
+          <>
+            <path
+              className="duration-300 group-hover:translate-x-[4px]"
+              d="M5.298 11.46a.407.407 0 00.451-.069L9.117 8.33A.437.437 0 009.26 8a.452.452 0 00-.143-.329L5.749 4.608a.414.414 0 00-.45-.068.426.426 0 00-.18.16.45.45 0 00-.068.237v2.188H.841a.826.826 0 00-.594.256A.893.893 0 000 8c0 .232.089.455.247.619a.826.826 0 00.595.256h4.21v2.188a.45.45 0 00.066.236c.044.07.106.127.18.162z"
+            />
+            <path d="M14.316 1H4.214c-.447 0-.875.184-1.19.513A1.786 1.786 0 002.53 2.75V4.5c0 .232.089.455.247.619a.826.826 0 00.595.256.826.826 0 00.595-.256.893.893 0 00.247-.619V2.75h10.102v10.5H4.214V11.5a.893.893 0 00-.247-.619.826.826 0 00-.595-.256.826.826 0 00-.595.256.893.893 0 00-.247.619v1.75c0 .464.178.91.493 1.237.316.329.744.513 1.19.513h10.103c.447 0 .875-.184 1.19-.513.317-.328.494-.773.494-1.237V2.75c0-.464-.177-.91-.493-1.237A1.652 1.652 0 0014.317 1z" />
           </>
         );
       case 'upload':
