@@ -49,7 +49,6 @@ const config: Config = {
     },
     borderRadius: {
       none: '0px',
-      md: '.375rem', // 6px
       s: '0.5rem', // 8px
       m: '1rem', // 16px
     },
