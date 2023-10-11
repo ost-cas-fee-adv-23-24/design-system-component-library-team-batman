@@ -52,6 +52,7 @@ const config: Config = {
       none: '0px',
       s: '0.5rem', // 8px
       m: '1rem', // 16px
+      full: '100%',
     },
     extend: {},
   },
