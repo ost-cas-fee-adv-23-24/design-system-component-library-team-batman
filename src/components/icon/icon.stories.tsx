@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Icon } from './icon';
 
 const meta = {
-  title: 'Example/Icon',
+  title: 'Component/Icon',
   component: Icon,
   parameters: {
     layout: 'centered',
@@ -13,8 +13,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-('text-primary-500');
 
 export const ChangeColorByClass: Story = {
   name: 'ℹ️ set color by class',
@@ -31,11 +29,67 @@ export const ChangeColorByClass: Story = {
     },
   },
 };
+
+export const ChangeSizeByClass: Story = {
+  name: 'ℹ️ set size by class',
+  args: {
+    variant: 'mumble',
+    size: 'l',
+    className: 'w-[150px] h-[150px]',
+  },
+  argTypes: {
+    className: {
+      name: 'First dash style',
+      options: ['w-[150px] h-[150px]', 'w-[400px] h-[400px]'],
+      control: 'select',
+    },
+  },
+};
+
+export const AnimatedSettings: Story = {
+  name: '✨ animated settings',
+  render: (args) => (
+    <div className="duration-300 hover:rotate-90">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'settings',
+    size: 'l',
+  },
+};
+
+export const AnimatedLogut: Story = {
+  name: '✨ animated logout',
+  render: (args) => (
+    <div className="group">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'logout-animated',
+    size: 'l',
+  },
+};
+
 export const Mumble: Story = {
   args: {
     variant: 'mumble',
     size: 'l',
-    className: 'fill-primary-800',
+  },
+};
+
+export const Logout: Story = {
+  args: {
+    variant: 'logout',
+    size: 'l',
+  },
+};
+
+export const Settings: Story = {
+  args: {
+    variant: 'settings',
+    size: 'l',
   },
 };
 
@@ -81,23 +135,9 @@ export const Fullscreen: Story = {
   },
 };
 
-export const Settings: Story = {
-  args: {
-    variant: 'settings',
-    size: 'l',
-  },
-};
-
 export const Send: Story = {
   args: {
     variant: 'send',
-    size: 'l',
-  },
-};
-
-export const Logout: Story = {
-  args: {
-    variant: 'logout',
     size: 'l',
   },
 };

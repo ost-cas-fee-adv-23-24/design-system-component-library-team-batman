@@ -39,6 +39,7 @@ const config: Config = {
       bold: '700',
     },
     spacing: {
+      0: '0px',
       xxs: '4px',
       xs: '8px',
       s: '16px',
@@ -52,6 +53,7 @@ const config: Config = {
       md: '.375rem', // 6px
       s: '0.5rem', // 8px
       m: '1rem', // 16px
+      full: '100%',
     },
     extend: {},
   },
@@ -79,77 +81,66 @@ const config: Config = {
           fontSize: theme('fontSize.sm'),
           lineHeight: theme('lineHeight.none'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-label-m': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.base'),
           lineHeight: theme('lineHeight.none'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-label-l': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.xl'),
           lineHeight: theme('lineHeight.none'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-label-xl': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.2xl'),
           lineHeight: theme('lineHeight.none'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-placeholder': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.base'),
           lineHeight: theme('lineHeight.none'),
           fontWeight: theme('fontWeight.medium'),
-          color: theme('colors.base.300'),
         },
         '.mumble-font-paragraph-m': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.lg'),
           lineHeight: theme('lineHeight.m'),
           fontWeight: theme('fontWeight.medium'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-paragraph-l': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.2xl'),
           lineHeight: theme('lineHeight.l'),
           fontWeight: theme('fontWeight.medium'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-h4': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.2xl'),
           lineHeight: theme('lineHeight.s'),
           fontWeight: theme('fontWeight.bold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-h3': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.3xl'),
           lineHeight: theme('lineHeight.s'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-h2': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.4xl'),
           lineHeight: theme('lineHeight.s'),
           fontWeight: theme('fontWeight.semibold'),
-          color: theme('colors.base.600'),
         },
         '.mumble-font-h1': {
           fontFamily: theme('fontFamily.poppins'),
           fontSize: theme('fontSize.5xl'),
           lineHeight: theme('lineHeight.s'),
           fontWeight: theme('fontWeight.bold'),
-          color: theme('colors.base.600'),
         },
       };
 
