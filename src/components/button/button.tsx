@@ -1,72 +1,91 @@
 import clsx from 'clsx';
-
+import { ComponentProps } from 'react';
+import { cn } from '../../utils/tailwind';
 import { Icon } from '../icon';
 
-interface ButtonProps {
+export interface ButtonProps {
   /**
-   * Button colors
+   * Button variant
    */
-  color?: 'primary' | 'secondary' | 'gradient';
+  variant?: 'primary' | 'secondary' | 'gradient';
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'm' | 'l';
   /**
    * Button contents
    */
-  label: string;
+  children: string;
   /**
-   * Optional click handler
+   * Needed for accesability
    */
-  onClick?: () => void;
+  ariaLabel?: string;
+  /**
+   * Optional Icon to display
+   */
+  icon?: ComponentProps<typeof Icon>['variant'];
   /**
    * Optional disable button
    */
-  disabled?: boolean,
+  disabled?: boolean;
+  /**
+   * Display button in full width
+   */
+  fullWidth?: boolean;
+  /**
+   * Optional click handler
+   */
+  onClick?: () => ComponentProps<'button'>['onClick'];
 }
-/**
- * Primary UI component for user interaction
- */
 
-
-const buttonClasses = 'w-full border border-primary-500 rounded-md text-white text-base disabled:pointer-events-none disabled:border-1 disabled:opacity-75 active:border-4 outline-none px-s'
-export const Button = ({ 
-  color = 'primary', 
-  size = 'medium', 
-  label,
+export const Button = ({
+  variant = 'primary',
+  size = 'm',
   disabled = false,
+  fullWidth = false,
+  children,
+  ariaLabel,
+  icon,
   onClick,
- }: ButtonProps) => {
+}: ButtonProps) => {
+  const style = cn(
+    'flex place-content-center rounded-s text-white outline-none mumble-font-label-m',
+    'outline-offset-0 transition-colors duration-300 ease-in-out',
+    'disabled:cursor-not-allowed disabled:opacity-40 disabled:ring-0',
+    fullWidth && 'w-full',
+    {
+      primary: [
+        'bg-primary-600',
+        'hover:bg-primary-700 hover:ring-[3px] hover:ring-primary-100',
+        'focus:bg-primary-700 focus:ring-4 focus:ring-primary-100 ',
+      ],
+      secondary: [
+        'bg-base-600',
+        'hover:bg-base-700 hover:ring-[3px] hover:ring-base-100',
+        'focus:bg-base-700 focus:ring-4 focus:ring-base-100 ',
+      ],
+      gradient: [
+        'mumble-gradient',
+        'hover:ring-[3px] hover:ring-primary-100 hover:mumble-gradient-hover',
+        'focus:ring-primary-100 focus:mumble-gradient-focus active:ring-4',
+      ],
+    }[variant],
+    {
+      m: 'gap-xs p-[12px]',
+      l: 'gap-[12px] px-m py-s',
+    }[size],
+  );
 
-    const sizeClasses = {
-    small: 'text-sm p-2',
-    medium: 'text-base',
-    large: 'text-lg',
-  }[size];
-
-  const colorClasses = {
-    primary: {
-      button: 'bg-primary-600 focus:border-primary-200 hover:bg-primary-700',
-    },
-    secondary: {
-      button: 'bg-base-600 focus:border-base-200 hover:bg-base-700',
-    },
-    gradient: {
-      button: 'mumble-gradient',
-    },
-  }[color]
-  
   return (
-      <button
-        type="button"
-        aria-label={label}
-        onClick={onClick}
-        disabled={disabled}
-        className={clsx(buttonClasses, colorClasses.button)}>
-          <div className='flex place-content-center items-center'>
-            <div className={`fwhitespace-nowrap ${sizeClasses}`}>{label}</div>
-            <Icon size='s' variant='mumble' className={'ml-s fill-primary-100'}/>
-          </div>
-      </button>
+    <button
+      type="button"
+      aria-label={ariaLabel || children}
+      onClick={onClick}
+      disabled={disabled}
+      className={clsx(style)}
+    >
+      {children}
+      {icon && <Icon size="s" className={'fill-white'} variant={icon} />}
+    </button>
   );
 };
