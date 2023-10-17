@@ -21,7 +21,7 @@ export const Label = ({ children, size, className, ...rest }: ILabelProps) => {
     size === 'xl' && 'mumble-font-label-xl',
     className,
   );
-  console.log(style)
+
   return (
     <label className={style} {...rest}>
       {children}
