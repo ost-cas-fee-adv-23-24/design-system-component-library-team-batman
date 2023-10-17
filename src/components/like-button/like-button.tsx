@@ -1,18 +1,15 @@
 
 import cn from 'clsx';
+import { ComponentProps, useState } from 'react';
 
-import { ComponentProps } from 'react';
 import { Icon } from '../icon';
+import { Label } from '../typography/label';
 
 export interface ButtonProps {
   /**
    * Button variant
    */
-  variant?: 'primary' | 'filled' | 'gray';
-  /**
-   * Button label
-   */
-  label?: string,
+  variant?: 'unliked' | 'liked' | 'likes';
   /**
    * likes counter
    */
@@ -28,26 +25,53 @@ export interface ButtonProps {
 }
 
 export const LikeButton = ({
-  variant = 'primary',
-  label = undefined,
+  variant = 'unliked',
   disabled = false,
   likes = 0,
   onClick,
 }: ButtonProps) => {
+  const [isHover, setIsHover] = useState(false)
   const style = {
-    primary: {
-      color: 'accent-600',
+    unliked: {
+      icon: {
+        color: 'base-600',
+        hover: 'accent-600',
+      },
+      text: {
+        color: 'base-600',
+        hover: 'accent-600',
+      }
     },
-    filled: {
-      color: 'accent-600',
+    liked: {
+      icon: {
+        color: 'accent-600',
+      },
+      text: {
+        color: 'accent-900',
+      }
     },
-    gray: {
-      color: 'base-600',
+    likes: {
+      icon: {
+        color: 'accent-600',
+        hover: 'accent-600',
+      },
+      text: {
+        color: 'accent-600',
+        hover: 'accent-900',
+      }
     },
   }[variant]
 
+  const iconLabel = variant === 'liked' ? 'Liked' : (likes > 1 ? 'Likes' : 'Like')
+  const iconHover = `fill-${style.icon?.hover}`
+  const textover = `text-${style.text?.hover}`
 
-  const iconLabel = (label) || (likes > 1 ? 'Likes' : 'Like')
+  const setHover = () => {
+    if (variant === 'liked') {
+      return
+    }
+    setIsHover(true)
+  }
 
   return (
     <button
@@ -55,10 +79,24 @@ export const LikeButton = ({
       aria-label={iconLabel}
       onClick={onClick}
       disabled={disabled}
-      className={cn('flex place-content-center mumble-font-label-m', `text-${style.color}`)}
+      className={cn('flex p-xs transition-colors duration-300 ease-in-out rounded-m', {
+        'bg-primary-50': isHover,
+      })}
+      onMouseOver={() => setHover()}
+      onMouseLeave={() => setIsHover(false)}
     >
-      <Icon size="s" className={`fill-${style.color} mr-xs`} variant={variant === 'filled' ? 'heart-filled' : 'heart'} />
-      {likes > 0 && likes} {iconLabel}
+      <Icon
+        size="s"
+        className={cn(`fill-${style.icon?.color}`, {
+          [iconHover]: isHover,
+        })}
+        variant={variant === 'unliked' ? 'heart' : 'heart-filled'}
+      />
+      <Label size='m' className={cn('cursor-pointer ml-xs', `text-${style.text?.color}`, {
+        [textover]: isHover,
+      })}>
+        {likes > 0 ? `${likes.toString()} ${iconLabel}` : iconLabel}
+      </Label>
     </button>
   );
 };

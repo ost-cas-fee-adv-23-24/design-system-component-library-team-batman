@@ -16,28 +16,28 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Unliked: Story = {
   args: {
     likes: 0,
   },
 };
 
-export const Filled: Story = {
+export const Liked: Story = {
   args: {
-    variant: 'filled',
-    likes: 10,
+    variant: 'liked',
   },
 };
 
-export const Gray: Story = {
+export const Like: Story = {
   args: {
-    variant: 'gray',
+    variant: 'likes',
     likes: 1,
   },
 };
-export const Custom: Story = {
+
+export const Likes: Story = {
   args: {
-    variant: 'filled',
-    label: 'Liked',
+    variant: 'likes',
+    likes: 12,
   },
 };
