@@ -11,6 +11,7 @@ const config = {
   bracketSameLine: false,
   arrowParens: 'always',
   plugins: ['prettier-plugin-packagejson', 'prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx', 'cn'],
 };
 
 module.exports = config;
