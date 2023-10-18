@@ -35,11 +35,11 @@ export const LikeButton = ({
     unliked: {
       icon: {
         color: 'base-600',
-        hover: 'accent-600',
+        active: 'accent-600',
       },
       text: {
         color: 'base-600',
-        hover: 'accent-600',
+        active: 'accent-600',
       }
     },
     liked: {
@@ -53,24 +53,24 @@ export const LikeButton = ({
     likes: {
       icon: {
         color: 'accent-600',
-        hover: 'accent-600',
+        active: 'accent-600',
       },
       text: {
         color: 'accent-600',
-        hover: 'accent-900',
+        active: 'accent-900',
       }
     },
   }[variant]
 
   const iconLabel = variant === 'liked' ? 'Liked' : (likes > 1 ? 'Likes' : 'Like')
-  const iconHover = `fill-${style.icon?.hover}`
-  const textover = `text-${style.text?.hover}`
+  const iconHover = `fill-${style.icon?.active}`
+  const textover = `text-${style.text?.active}`
 
-  const setHover = () => {
+  const handleSetHover = (state: boolean) => {
     if (variant === 'liked') {
       return
     }
-    setIsHover(true)
+    setIsHover(state)
   }
 
   return (
@@ -82,8 +82,10 @@ export const LikeButton = ({
       className={cn('flex p-xs transition-colors duration-300 ease-in-out rounded-m', {
         'bg-primary-50': isHover,
       })}
-      onMouseOver={() => setHover()}
-      onMouseLeave={() => setIsHover(false)}
+      onMouseOver={() => handleSetHover(true)}
+      onMouseLeave={() => handleSetHover(false)}
+      onFocus={() => handleSetHover(true)}
+      onBlur={() => handleSetHover(false)}
     >
       <Icon
         size="s"
