@@ -30,7 +30,7 @@ export const LikeButton = ({
   likes = 0,
   onClick,
 }: ButtonProps) => {
-  const [isHover, setIsHover] = useState(false)
+  const [isActive, setIsActive] = useState(false)
   const style = {
     unliked: {
       icon: {
@@ -66,11 +66,11 @@ export const LikeButton = ({
   const iconHover = `fill-${style.icon?.active}`
   const textover = `text-${style.text?.active}`
 
-  const handleSetHover = (state: boolean) => {
+  const handleSetActive = (state: boolean) => {
     if (variant === 'liked') {
       return
     }
-    setIsHover(state)
+    setIsActive(state)
   }
 
   return (
@@ -80,22 +80,22 @@ export const LikeButton = ({
       onClick={onClick}
       disabled={disabled}
       className={cn('flex p-xs transition-colors duration-300 ease-in-out rounded-m', {
-        'bg-primary-50': isHover,
+        'bg-primary-50': isActive,
       })}
-      onMouseOver={() => handleSetHover(true)}
-      onMouseLeave={() => handleSetHover(false)}
-      onFocus={() => handleSetHover(true)}
-      onBlur={() => handleSetHover(false)}
+      onMouseOver={() => handleSetActive(true)}
+      onMouseLeave={() => handleSetActive(false)}
+      onFocus={() => handleSetActive(true)}
+      onBlur={() => handleSetActive(false)}
     >
       <Icon
         size="s"
         className={cn(`fill-${style.icon?.color}`, {
-          [iconHover]: isHover,
+          [iconHover]: isActive,
         })}
         variant={variant === 'unliked' ? 'heart' : 'heart-filled'}
       />
       <Label size='m' className={cn('cursor-pointer ml-xs', `text-${style.text?.color}`, {
-        [textover]: isHover,
+        [textover]: isActive,
       })}>
         {likes > 0 ? `${likes.toString()} ${iconLabel}` : iconLabel}
       </Label>
