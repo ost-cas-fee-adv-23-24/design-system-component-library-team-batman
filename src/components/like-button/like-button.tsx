@@ -34,37 +34,37 @@ export const LikeButton = ({
   const style = {
     unliked: {
       icon: {
-        color: 'base-600',
-        active: 'accent-600',
+        color: 'fill-base-600',
+        active: 'fill-accent-600',
       },
       text: {
-        color: 'base-600',
-        active: 'accent-600',
-      }
+        color: 'text-base-600',
+        active: 'text-accent-600',
+      },
     },
     liked: {
       icon: {
-        color: 'accent-600',
+        color: 'fill-accent-600',
       },
       text: {
-        color: 'accent-900',
-      }
+        color: 'text-accent-900',
+      },
     },
     likes: {
       icon: {
-        color: 'accent-600',
-        active: 'accent-600',
+        color: 'fill-accent-600',
+        active: 'fill-accent-600',
       },
       text: {
-        color: 'accent-600',
-        active: 'accent-900',
-      }
+        color: 'text-accent-600',
+        active: 'text-accent-900',
+      },
     },
-  }[variant]
+  }[variant];
 
   const iconLabel = variant === 'liked' ? 'Liked' : (likes > 1 ? 'Likes' : 'Like')
-  const iconHover = `fill-${style.icon?.active}`
-  const textover = `text-${style.text?.active}`
+  const iconHover = style.icon?.active as string
+  const textover = style.text?.active as string
 
   const handleSetActive = (state: boolean) => {
     if (variant === 'liked') {
@@ -80,7 +80,7 @@ export const LikeButton = ({
       onClick={onClick}
       disabled={disabled}
       className={cn('flex p-xs transition-colors duration-300 ease-in-out rounded-m', {
-        'bg-primary-50': isActive,
+        'bg-accent-50': isActive,
       })}
       onMouseOver={() => handleSetActive(true)}
       onMouseLeave={() => handleSetActive(false)}
@@ -89,12 +89,12 @@ export const LikeButton = ({
     >
       <Icon
         size="s"
-        className={cn(`fill-${style.icon?.color}`, {
+        className={cn(style.icon.color, {
           [iconHover]: isActive,
         })}
         variant={variant === 'unliked' ? 'heart' : 'heart-filled'}
       />
-      <Label size='m' className={cn('cursor-pointer ml-xs', `text-${style.text?.color}`, {
+      <Label size='m' className={cn('cursor-pointer ml-xs', style.text?.color, {
         [textover]: isActive,
       })}>
         {likes > 0 ? `${likes.toString()} ${iconLabel}` : iconLabel}
