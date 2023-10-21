@@ -1,15 +1,20 @@
-
 import cn from 'clsx';
 import { ComponentProps, useState } from 'react';
 
 import { Icon } from '../icon';
 import { Label } from '../typography/label';
 
-export interface ButtonProps {
+export interface LikeButtonProps {
   /**
-   * Button variant
+   * liked by user
    */
-  variant?: 'unliked' | 'liked' | 'likes';
+  isLikedByUser?: boolean;
+  /**
+   *
+   * actions
+   */
+  onLikeAdd?: () => Promise<void>;
+  onLikeRemove?: () => Promise<void>;
   /**
    * likes counter
    */
@@ -25,12 +30,35 @@ export interface ButtonProps {
 }
 
 export const LikeButton = ({
-  variant = 'unliked',
   disabled = false,
   likes = 0,
-  onClick,
-}: ButtonProps) => {
-  const [isActive, setIsActive] = useState(false)
+  isLikedByUser,
+  onLikeRemove,
+  onLikeAdd,
+}: LikeButtonProps) => {
+  const [variant, setVariant] = useState<'unliked' | 'liked' | 'likes'>(likes > 0 ? 'likes' : 'unliked');
+  const [isLiked, setIsLiked] = useState(isLikedByUser);
+
+  const handleLike = async () => {
+    if (isLiked) {
+      setIsLiked(false);
+      // todo: disable button while remove is in progress
+      await onLikeRemove?.();
+    } else {
+      setIsLiked(true);
+      // todo: disable button while animating
+      setVariant('liked');
+      await onLikeAdd?.();
+      new Promise((resolve) =>
+        setTimeout(() => {
+          setVariant('likes');
+          resolve(true);
+        }, 600),
+      );
+    }
+  };
+
+  // const [isActive, setIsActive] = useState(false)
   const style = {
     unliked: {
       icon: {
@@ -60,43 +88,36 @@ export const LikeButton = ({
         active: 'text-accent-900',
       },
     },
-  }[variant];
+  }[(isLiked && 'liked') || variant];
 
-  const iconLabel = variant === 'liked' ? 'Liked' : (likes > 1 ? 'Likes' : 'Like')
-  const iconHover = style.icon?.active as string
-  const textover = style.text?.active as string
+  const iconLabel = isLiked ? 'Liked' : likes > 1 ? 'Likes' : 'Like';
+  // const iconHover = style.icon?.active as string
+  // const textover = style.text?.active as string
 
-  const handleSetActive = (state: boolean) => {
-    if (variant === 'liked') {
-      return
-    }
-    setIsActive(state)
-  }
-
+  // const handleSetActive = (state: boolean) => {
+  //   if (variant === 'liked') {
+  //     return
+  //   }
+  //   setIsActive(state)
+  // }
   return (
     <button
       type="button"
       aria-label={iconLabel}
-      onClick={onClick}
+      onClick={handleLike}
       disabled={disabled}
-      className={cn('flex p-xs transition-colors duration-300 ease-in-out rounded-m', {
-        'bg-accent-50': isActive,
-      })}
-      onMouseOver={() => handleSetActive(true)}
-      onMouseLeave={() => handleSetActive(false)}
-      onFocus={() => handleSetActive(true)}
-      onBlur={() => handleSetActive(false)}
+      className={cn('flex rounded-m p-xs transition-colors duration-300 ease-in-out', 'group hover:bg-accent-50')}
+      // onMouseOver={() => handleSetActive(true)}
+      // onMouseLeave={() => handleSetActive(false)}
+      // onFocus={() => handleSetActive(true)}
+      // onBlur={() => handleSetActive(false)}
     >
       <Icon
         size="s"
-        className={cn(style.icon.color, {
-          [iconHover]: isActive,
-        })}
-        variant={variant === 'unliked' ? 'heart' : 'heart-filled'}
+        className={cn(style.icon.color, 'group hover:fill-accent-600')}
+        variant={variant === 'unliked' && !isLiked ? 'heart' : 'heart-filled'}
       />
-      <Label size='m' className={cn('cursor-pointer ml-xs', style.text?.color, {
-        [textover]: isActive,
-      })}>
+      <Label size="m" className={cn('group ml-xs cursor-pointer hover:text-accent-600', style.text?.color)}>
         {likes > 0 ? `${likes.toString()} ${iconLabel}` : iconLabel}
       </Label>
     </button>

@@ -17,27 +17,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Unliked: Story = {
-  args: {
-    likes: 0,
-  },
+  args: {},
 };
 
 export const Liked: Story = {
   args: {
-    variant: 'liked',
+    isLikedByUser: true,
   },
 };
 
 export const Like: Story = {
   args: {
-    variant: 'likes',
     likes: 1,
   },
 };
 
 export const Likes: Story = {
   args: {
-    variant: 'likes',
     likes: 12,
   },
 };
