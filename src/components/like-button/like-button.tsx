@@ -38,15 +38,16 @@ export const LikeButton = ({
 }: LikeButtonProps) => {
   const [variant, setVariant] = useState<'unliked' | 'liked' | 'likes'>(likes > 0 ? 'likes' : 'unliked');
   const [isLiked, setIsLiked] = useState(isLikedByUser);
+  const [isDisabled, setIsDisabled] = useState(disabled);
 
   const handleLike = async () => {
     if (isLiked) {
       setIsLiked(false);
-      // todo: disable button while remove is in progress
+      setIsDisabled(false);
       await onLikeRemove?.();
     } else {
       setIsLiked(true);
-      // todo: disable button while animating
+      setIsDisabled(true);
       setVariant('liked');
       await onLikeAdd?.();
       new Promise((resolve) =>
@@ -92,15 +93,27 @@ export const LikeButton = ({
       type="button"
       aria-label={iconLabel}
       onClick={handleLike}
-      disabled={disabled}
-      className="group flex rounded-m pb-xs pl-s pr-s pt-xs transition-colors duration-300 ease-in-out hover:bg-accent-50"
+      disabled={isDisabled}
+      className={cn(
+        'group flex rounded-m pb-xs pl-s pr-s pt-xs',
+        'transition-colors duration-300 ease-in-out',
+        !isDisabled && 'hover:bg-accent-50',
+      )}
     >
       <Icon
         size="s"
-        className={cn(style.icon.color, 'group-hover:fill-accent-600')}
+        className={cn(style.icon.color, !isDisabled && 'group-hover:fill-accent-600')}
         variant={variant === 'unliked' && !isLiked ? 'heart' : 'heart-filled'}
       />
-      <Label size="m" className={cn('ml-xs cursor-pointer group-hover:text-accent-600', style.text?.color)}>
+      <Label
+        size="m"
+        className={cn(
+          'ml-xs',
+          !isDisabled && 'group-hover:text-accent-600',
+          style.text?.color,
+          !isDisabled && 'cursor-pointer',
+        )}
+      >
         {likes > 0 ? `${likes.toString()} ${iconLabel}` : iconLabel}
       </Label>
     </button>
