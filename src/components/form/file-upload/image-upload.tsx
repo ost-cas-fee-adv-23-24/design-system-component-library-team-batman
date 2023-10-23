@@ -14,11 +14,13 @@ export interface IImageUpload
 export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
   ({ name, error, disabled, id, onChange, ...rest }, ref) => {
     const labelRef = useRef<HTMLLabelElement>(null);
-    const [dragActive, setDragActive] = useState<boolean>(false);
-    const [fileName, setFileName] = useState<string>('');
-    const [fileSize, setFileSize] = useState<string>('');
-    const [localError, setLocalError] = useState<string>('');
-    const [filePreview, setFilePreview] = useState<string>('');
+    const [state, setState] = useState({
+      dragActive: false,
+      fileName: '',
+      fileSize: '',
+      localError: '',
+      filePreview: '',
+    });
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (event.code === 'Space' || event.key === 'Enter') {
@@ -33,10 +35,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
     };
 
     const resetInput = () => {
-      setFileName('');
-      setFileSize('');
-      setLocalError('');
-      setFilePreview('');
+      setState({ ...state, fileName: '', fileSize: '', localError: '', filePreview: '' });
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>) => {
@@ -45,12 +44,15 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
       const file = 'dataTransfer' in e ? e.dataTransfer.files?.[0] : e.target.files?.[0];
       if (file) {
         if (file.size > 52428800) {
-          setLocalError('Die Dateigrösse darf nicht größer als 50 MB sein');
+          setState({ ...state, localError: 'Die Dateigrösse darf nicht größer als 50 MB sein' });
           return;
         }
-        setFileName(file.name);
-        setFileSize(formatFileSize(file.size)); // convert bytes to megabytes
-        setFilePreview(URL.createObjectURL(file));
+        setState({
+          ...state,
+          fileName: file.name,
+          fileSize: formatFileSize(file.size),
+          filePreview: URL.createObjectURL(file),
+        });
       } else {
         resetInput();
       }
@@ -63,7 +65,10 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
     ) => {
       e.preventDefault();
       e.stopPropagation();
-      setDragActive(dragActive);
+      setState({
+        ...state,
+        dragActive,
+      });
     };
 
     return (
@@ -106,7 +111,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
               // error
               error && 'border-error hover:border-error focus:border-error',
               // dragging a file
-              dragActive && 'bg-primary-100',
+              state.dragActive && 'bg-primary-100',
             )}
             onKeyDown={handleKeyDown}
             onDrop={handleFileChange}
@@ -115,14 +120,14 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
             onDragLeave={(e) => handleDrag(e, false)}
             role="button"
             aria-haspopup="true"
-            aria-expanded={fileName ? 'true' : 'false'}
+            aria-expanded={state.fileName ? 'true' : 'false'}
             aria-describedby={`${id}-description`}
           >
-            {fileName ? (
+            {state.fileName ? (
               <>
-                <span className="text-base-500 mumble-font-label-xl">{fileName}</span>
+                <span className="text-base-500 mumble-font-label-xl">{state.fileName}</span>
                 <Paragraph size="m" className="text-base-400">
-                  {fileSize.toString()} MB
+                  {state.fileSize.toString()} MB
                 </Paragraph>
               </>
             ) : (
@@ -135,9 +140,11 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
               </>
             )}
 
-            {filePreview && <img src={filePreview} alt={fileName} className="h-xxl w-auto rounded-s object-cover" />}
+            {state.filePreview && (
+              <img src={state.filePreview} alt={state.fileName} className="h-xxl w-auto rounded-s object-cover" />
+            )}
 
-            <Hint error={error || localError} />
+            <Hint error={error || state.localError} />
           </div>
           {/* button to manually select images*/}
           <div
@@ -160,7 +167,7 @@ export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
             <Icon variant="upload" size="s" className="fill-base-500" />
           </div>
           <div id={`${id}-description`} className="sr-only">
-            {fileName ? `${fileName}, ${fileSize} MB` : 'Keine Datei ausgewählt'}
+            {state.fileName ? `${state.fileName}, ${state.fileSize} MB` : 'Keine Datei ausgewählt'}
           </div>
         </label>
       </div>
