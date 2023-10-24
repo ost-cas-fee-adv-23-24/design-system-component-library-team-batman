@@ -10,7 +10,8 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    onClick: { action: 'clicked' },
+    onLikeAdd: { action: 'onLikeAdd' },
+    onLikeRemove: { action: 'onLikeRemove' },
   },
 } satisfies Meta<typeof LikeButton>;
 export default meta;
@@ -20,7 +21,7 @@ export const Unliked: Story = {
   args: {},
 };
 
-export const Liked: Story = {
+export const LikedByUser: Story = {
   args: {
     isLikedByUser: true,
   },

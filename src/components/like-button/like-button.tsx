@@ -38,11 +38,12 @@ export const LikeButton = ({
   onLikeRemove,
   onLikeAdd,
 }: LikeButtonProps) => {
-  const [variant, setVariant] = useState<'unliked' | 'liked' | 'likes'>(likes > 0 ? 'likes' : 'unliked');
+  const [variant, setVariant] = useState<'unliked' | 'liked' | 'likes'>(
+    isLikedByUser ? 'liked' : likes > 0 ? 'likes' : 'unliked',
+  );
   const [isLiked, setIsLiked] = useState(isLikedByUser);
   const [likesCount, setLikesCount] = useState(likes);
   const [isDisabled, setIsDisabled] = useState(disabled);
-
   const handleLike = async () => {
     if (isLiked) {
       setIsLiked(false);
@@ -93,7 +94,7 @@ export const LikeButton = ({
     },
   }[variant];
 
-  const iconLabel = variant === 'liked' ? 'Liked' : likesCount > 0 ? `${likesCount.toString()} Likes` : 'Like';
+  const iconLabel = variant === 'liked' ? 'Liked' : likesCount > 1 ? `${likesCount.toString()} Likes` : 'Like';
 
   return (
     <button
@@ -110,7 +111,7 @@ export const LikeButton = ({
       <Icon
         size="s"
         className={cn(style.icon.color, 'group-hover:fill-accent-500', 'transition-colors duration-300 ease-in-out')}
-        variant={variant === 'unliked' || !isLiked ? 'heart' : 'heart-filled'}
+        variant={variant === 'unliked' ?? isLiked ? 'heart' : 'heart-filled'}
       />
       <Label
         size="m"
