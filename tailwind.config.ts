@@ -10,6 +10,7 @@ const config: Config = {
     colors: {
       white: '#ffffff',
       black: '#000000',
+      error: '#FF0000',
       primary: colors.violet,
       accent: colors.pink,
       base: colors.slate,

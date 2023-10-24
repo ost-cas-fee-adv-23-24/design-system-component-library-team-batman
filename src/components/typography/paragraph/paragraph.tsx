@@ -5,7 +5,7 @@ export interface IParagraphProps extends ComponentProps<'p'> {
   /**
    * Paragraph text
    */
-  children: string;
+  children: string | string[];
   /**
    * Paragraph font size
    */
