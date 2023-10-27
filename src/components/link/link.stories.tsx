@@ -16,8 +16,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LinkWithIcon: Story = {
+export const LinkLocation: Story = {
   args: {
     text: 'link',
+    variant: 'location',
+  },
+};
+
+export const LinkCalendarDisabled: Story = {
+  args: {
+    text: 'calendar',
+    variant: 'calendar',
+    disabled: true,
+  },
+};
+
+export const LinkWithoutIcon: Story = {
+  args: {
+    text: 'link',
+    variant: 'empty',
   },
 };
