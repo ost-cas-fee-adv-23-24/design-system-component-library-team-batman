@@ -1,16 +1,16 @@
 import cn from 'clsx';
-
+import { ComponentProps } from 'react';
 import { Icon, IIconProps } from '../icon';
 
-interface IIconButtonProps {
+export interface IIconButtonProps {
   /**
    * variant of the icon
    */
-  variant: IIconProps["variant"],
+  variant: IIconProps['variant'];
   /**
-     * Optional send custom classes
+   * Optional send custom classes
    */
-  className?: string,
+  className?: string;
   /**
    * Optional disable button
    */
@@ -18,10 +18,10 @@ interface IIconButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => React.ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
-export const IconButton = ({ variant, className, disabled = false, onClick, }: IIconButtonProps) => {
+export const IconButton = ({ variant, className, disabled = false, onClick }: IIconButtonProps) => {
   return (
     <button
       className={cn(
@@ -34,7 +34,7 @@ export const IconButton = ({ variant, className, disabled = false, onClick, }: I
       disabled={disabled}
       type="button"
     >
-      <Icon variant={variant} size='s' className='fill-white' />
+      <Icon variant={variant} size="s" className="fill-white" />
     </button>
   );
 };
