@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-component-props */
 import { Tab } from '@headlessui/react';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '../../utils/tailwind';
 export interface ITabGroupProps {
   /**
@@ -19,6 +19,7 @@ export const TabGroup = ({ tabs = [] }: ITabGroupProps) => {
   const [mouseHover, setMouseHover] = useState<number | undefined>(undefined);
   const findSelectedTab = tabs.findIndex((tab) => tab.selected) !== -1 ? tabs.findIndex((tab) => tab.selected) : 0;
   const [currentSelected, setCurrentSelected] = useState<number>(findSelectedTab);
+  const uuid = useRef(crypto.randomUUID());
 
   useEffect(() => {
     setCurrentSelected(findSelectedTab);
@@ -43,7 +44,7 @@ export const TabGroup = ({ tabs = [] }: ITabGroupProps) => {
           >
             {currentSelected === index && (
               <motion.span
-                layoutId="bubble"
+                layoutId={`bubble-${uuid.current}`}
                 className={cn(
                   'absolute inset-0 -z-10 w-full rounded-[6px] bg-white transition-[width] duration-300',
                   // mouse is right
