@@ -4,17 +4,51 @@ import { cn } from '../../utils/tailwind';
 import ImagePreview from './image-preview';
 
 export interface IImageProps extends ComponentPropsWithRef<'img'> {
+  /**
+   * The image source
+   */
   src: string;
+  /**
+   * The image alt text (required for accessibility)
+   */
   alt: string;
+  /**
+   * The image border radius
+   */
   rounded?: 's' | 'm' | 'full' | 'none';
+  /**
+   * How the image should be placed inside the container
+   */
+  imagePlacing?: 'contain' | 'cover';
+  /**
+   * Image zoom effect on hover
+   */
   zoom?: 'in' | 'out';
+  /**
+   * Click image to open in fullscreen
+   */
   clickToFullScreen?: boolean;
+  /**
+   * With this prop you can use `next/image` instead of `<img>`
+   */
   as?: ElementType;
 }
 
 export const Image = forwardRef<HTMLImageElement, IImageProps>(
   (
-    { as: Component = 'img', rounded = 's', width, height, src, zoom, clickToFullScreen, className, alt, ...rest },
+    {
+      as: Component = 'img',
+      rounded = 'none',
+      imagePlacing = 'contain',
+      width,
+      height,
+      src,
+      zoom,
+      clickToFullScreen,
+      className,
+      alt,
+      ...rest
+    },
     ref,
   ) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -31,7 +65,14 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
     };
 
     return (
-      <div className={cn('group relative h-full w-fit overflow-hidden', roundedStyle)}>
+      <div
+        className={cn(
+          imagePlacing === 'contain' && 'w-fit',
+          imagePlacing === 'cover' && 'w-full',
+          'group relative h-full overflow-hidden',
+          roundedStyle,
+        )}
+      >
         <Component
           ref={ref}
           src={src}
@@ -40,7 +81,8 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
           height={height}
           width={width}
           className={cn(
-            'object-contain',
+            imagePlacing === 'contain' && 'h-full w-auto object-contain object-center',
+            imagePlacing === 'cover' && 'h-full w-full object-cover',
             'duration-600 transform transition-all ease-in-out',
             zoom === 'in' && 'group-hover:scale-105',
             zoom === 'out' && 'scale-105 group-hover:scale-100',
@@ -82,8 +124,10 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
           </>
         )}
         <ImagePreview
+          // fill
           alt={alt}
           src={src}
+          as={Component}
           width={width}
           height={height}
           isOpen={isFullScreen}

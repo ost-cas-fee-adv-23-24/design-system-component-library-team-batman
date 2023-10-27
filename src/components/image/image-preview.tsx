@@ -3,16 +3,16 @@ import { Fragment } from 'react';
 import { IImageProps, Image } from '.';
 import { Icon } from '../icon';
 
-export interface IImagePreviewProps {
-  src: string;
-  alt: string;
-  width?: IImageProps['width'];
-  height?: IImageProps['height'];
+/**
+ * ℹ️ this component is can not be found in figma, it is a custom component to improve the image component
+ */
+
+export interface IImagePreviewProps extends Pick<IImageProps, 'as' | 'width' | 'height' | 'src' | 'alt'> {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function ImagePreview({ src, isOpen, alt, width, height, onClose }: IImagePreviewProps) {
+export default function ImagePreview({ src, isOpen, alt, width, height, as, onClose }: IImagePreviewProps) {
   const closeModal = () => {
     onClose();
   };
@@ -51,8 +51,8 @@ export default function ImagePreview({ src, isOpen, alt, width, height, onClose 
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="grid h-[100dvh] place-content-center place-items-center p-s">
-              <Image src={src} alt={alt} width={width} height={height} className="h-full max-h-full w-auto" />
+            <div className="my-auto grid h-[100dvh] place-content-center p-s">
+              <Image src={src} alt={alt} width={width} height={height} rounded="s" as={as} />
             </div>
           </Transition.Child>
         </div>
