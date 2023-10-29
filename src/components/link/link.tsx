@@ -8,7 +8,7 @@ export interface LinkProps {
   /**
    * variant of the link
    */
-  variant: 'profile' | 'time' | 'location' | 'calendar' | 'link';
+  variant?: 'profile' | 'time' | 'location' | 'calendar' | 'link';
   /**
    * Text to show
    */
@@ -23,7 +23,7 @@ export interface LinkProps {
   onClick?: () => ComponentProps<'button'>['onClick'];
 }
 
-export const Link = ({ variant = 'profile', disabled = false, text, onClick }: LinkProps) => {
+export const Link = ({ variant = 'link', disabled = false, text, onClick }: LinkProps) => {
   return (
     <button type="button" aria-label={text} className="group flex" onClick={onClick}>
       {variant !== 'link' && (
