@@ -1,5 +1,5 @@
 import cn from 'clsx';
-import { ComponentProps, useState } from 'react';
+import { ComponentProps } from 'react';
 
 import { Icon } from '../icon';
 import { Label } from '../typography/label';
@@ -8,7 +8,7 @@ export interface LinkProps {
   /**
    * variant of the link
    */
-  variant: 'profile' | 'time' | 'location' | 'calendar' | 'empty';
+  variant: 'profile' | 'time' | 'location' | 'calendar' | 'link';
   /**
    * Text to show
    */
@@ -24,22 +24,15 @@ export interface LinkProps {
 }
 
 export const Link = ({ variant = 'profile', disabled = false, text, onClick }: LinkProps) => {
-  const [isDisabled, setIsDisabled] = useState(disabled);
-
-  const handleLike = async () => {
-    setIsDisabled(true);
-    onClick;
-  };
-
   return (
-    <button type="button" aria-label={text} className="group flex" onClick={handleLike}>
-      {variant !== 'empty' && (
+    <button type="button" aria-label={text} className="group flex" onClick={onClick}>
+      {variant !== 'link' && (
         <Icon
-          size="xs1"
+          size="xs2"
           variant={variant}
           className={cn(
             'mr-xs fill-primary-600 group-hover:fill-primary-900',
-            isDisabled && 'fill-base-600 group-hover:fill-base-400',
+            disabled && 'fill-base-600 group-hover:fill-base-400',
           )}
         />
       )}
@@ -47,8 +40,8 @@ export const Link = ({ variant = 'profile', disabled = false, text, onClick }: L
         size="s"
         className={cn(
           'text-primary-600 group-hover:text-primary-900',
-          isDisabled && 'text-base-600 group-hover:text-base-400',
-          !isDisabled && 'cursor-pointer',
+          disabled && 'text-base-600 group-hover:text-base-400',
+          !disabled && 'cursor-pointer',
         )}
       >
         {text}

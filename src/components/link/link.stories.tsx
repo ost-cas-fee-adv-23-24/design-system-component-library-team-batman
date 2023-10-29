@@ -31,9 +31,9 @@ export const LinkCalendarDisabled: Story = {
   },
 };
 
-export const LinkWithoutIcon: Story = {
+export const LinLabel: Story = {
   args: {
     text: 'link',
-    variant: 'empty',
+    variant: 'link',
   },
 };

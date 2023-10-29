@@ -34,13 +34,13 @@ export interface IIconProps extends ComponentProps<'svg'> {
   /**
    * Size of the icon
    */
-  size?: 'xs1' | 's' | 'm' | 'l';
+  size?: 'xs2' | 's' | 'm' | 'l';
 }
 
 export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) => {
   const style = cn(
     'fill-base-600',
-    size === 'xs1' && 'h-xs1 w-xs1',
+    size === 'xs2' && 'h-xs2 w-xs2',
     size === 's' && 'h-s w-s',
     size === 'm' && 'h-m w-m',
     size === 'l' && 'h-l w-l',
