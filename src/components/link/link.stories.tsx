@@ -16,23 +16,43 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LinkLocation: Story = {
+export const Profile: Story = {
   args: {
-    text: 'link',
+    text: 'profile',
+    variant: 'profile',
+  },
+};
+
+export const Timestamp: Story = {
+  args: {
+    text: 'timestamp',
+    variant: 'time',
+  },
+};
+
+export const Location: Story = {
+  args: {
+    text: 'location',
     variant: 'location',
   },
 };
 
-export const LinkCalendarDisabled: Story = {
+export const Calendar: Story = {
   args: {
     text: 'calendar',
     variant: 'calendar',
-    disabled: true,
   },
 };
 
-export const LinLabel: Story = {
+export const LinkLabel: Story = {
   args: {
     text: 'link',
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    text: 'link',
+    disabled: true,
   },
 };

@@ -43,7 +43,6 @@ const config: Config = {
       0: '0px',
       xxs: '4px',
       xs: '8px',
-      xs2: '12px',
       s: '16px',
       m: '24px',
       l: '32px',
