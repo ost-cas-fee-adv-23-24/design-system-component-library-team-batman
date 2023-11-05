@@ -6,7 +6,7 @@ import { Label } from '../typography/label';
 
 export interface CommentButtonProps {
   /**
-   * likes counter
+   * comments counter
    */
   comments?: number;
   /**
