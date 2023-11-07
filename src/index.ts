@@ -1,4 +1,5 @@
 export * from './components/button';
+export * from './components/copy-button';
 export * from './components/form/file-upload';
 export * from './components/form/hint';
 export * from './components/form/input';
