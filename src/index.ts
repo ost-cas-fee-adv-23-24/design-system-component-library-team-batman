@@ -6,6 +6,7 @@ export * from './components/form/textarea';
 export * from './components/icon';
 export * from './components/icon-button';
 export * from './components/like-button';
+export * from './components/logo';
 export * from './components/typography/heading';
 export * from './components/typography/label';
 export * from './components/typography/paragraph';
