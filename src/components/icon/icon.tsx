@@ -350,8 +350,6 @@ export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) =>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      width={'auto'}
-      height={'auto'}
       fill="currentColor"
       viewBox="0 0 16 16"
       className={style}
