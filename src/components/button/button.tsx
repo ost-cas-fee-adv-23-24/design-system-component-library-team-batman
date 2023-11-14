@@ -35,7 +35,7 @@ export interface ButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
 export const Button = ({
