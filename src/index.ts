@@ -9,6 +9,7 @@ export * from './components/image';
 export * from './components/image/avatar';
 export * from './components/image/image-preview';
 export * from './components/like-button';
+export * from './components/link';
 export * from './components/typography/heading';
 export * from './components/typography/label';
 export * from './components/typography/paragraph';
