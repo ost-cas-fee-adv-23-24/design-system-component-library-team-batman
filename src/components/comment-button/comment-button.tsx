@@ -4,7 +4,7 @@ import { ComponentProps } from 'react';
 import { Icon } from '../icon';
 import { Label } from '../typography/label';
 
-export interface CommentButtonProps {
+export interface ICommentButtonProps {
   /**
    * comments counter
    */
@@ -16,10 +16,10 @@ export interface CommentButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
-export const CommentButton = ({ disabled = false, comments = 0, onClick }: CommentButtonProps) => {
+export const CommentButton = ({ disabled = false, comments = 0, onClick }: ICommentButtonProps) => {
   const isCommented = comments > 0;
 
   const iconLabel = isCommented ? `${comments.toString()} Comments` : 'Comment';
