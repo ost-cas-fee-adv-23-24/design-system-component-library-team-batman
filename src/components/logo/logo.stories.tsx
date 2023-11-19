@@ -19,3 +19,13 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {},
 };
+export const White: Story = {
+  args: {
+    variant: 'white',
+  },
+};
+export const Gradient: Story = {
+  args: {
+    variant: 'gradient',
+  },
+};

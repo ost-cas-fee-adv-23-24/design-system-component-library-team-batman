@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
-import { cn } from '../../utils/tailwind';
-import { Icon } from '../icon';
+import { cn } from '../../../utils/tailwind';
+import { Icon } from '../../icon';
 
 export interface ButtonProps {
   /**

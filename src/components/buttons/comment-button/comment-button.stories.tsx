@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { CopyButton } from './copy-button';
+import { CommentButton } from './comment-button';
 
 const meta = {
-  title: 'Component/CopyButton',
-  component: CopyButton,
+  title: 'Component/Buttons/CommentButton',
+  component: CommentButton,
   parameters: {
     layout: 'centered',
   },
@@ -12,11 +12,11 @@ const meta = {
   argTypes: {
     onClick: { action: 'OnClick' },
   },
-} satisfies Meta<typeof CopyButton>;
+} satisfies Meta<typeof CommentButton>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Copy: Story = {
+export const NoComments: Story = {
   args: {},
 };
 export const Disabled: Story = {
@@ -24,8 +24,14 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
-export const Copied: Story = {
+export const DisabledWithComments: Story = {
   args: {
-    copied: true,
+    disabled: true,
+    comments: 3,
+  },
+};
+export const Comments: Story = {
+  args: {
+    comments: 254,
   },
 };
