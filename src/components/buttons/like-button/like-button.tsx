@@ -4,7 +4,7 @@ import { ComponentProps, useState } from 'react';
 import { Icon } from '../../icon';
 import { Label } from '../../typography/label';
 
-export interface LikeButtonProps {
+export interface ILikeButtonProps {
   /**
    * liked by user
    */
@@ -28,7 +28,7 @@ export interface LikeButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
 export const LikeButton = ({
@@ -37,7 +37,7 @@ export const LikeButton = ({
   isLikedByUser,
   onLikeRemove,
   onLikeAdd,
-}: LikeButtonProps) => {
+}: ILikeButtonProps) => {
   const [variant, setVariant] = useState<'unliked' | 'liked' | 'likes'>(
     isLikedByUser ? 'liked' : likes > 0 ? 'likes' : 'unliked',
   );

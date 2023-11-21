@@ -16,3 +16,5 @@ export * from './components/logo';
 export * from './components/typography/heading';
 export * from './components/typography/label';
 export * from './components/typography/paragraph';
+export * from './components/user/user-card';
+export * from './components/user/user-info';

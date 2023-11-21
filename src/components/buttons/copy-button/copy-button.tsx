@@ -4,7 +4,7 @@ import { ComponentProps } from 'react';
 import { Icon } from '../../icon';
 import { Label } from '../../typography/label';
 
-export interface CopyButtonProps {
+export interface ICopyButtonProps {
   /**
    * Optional copied
    */
@@ -16,10 +16,10 @@ export interface CopyButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
-export const CopyButton = ({ disabled = false, copied = false, onClick }: CopyButtonProps) => {
+export const CopyButton = ({ disabled = false, copied = false, onClick }: ICopyButtonProps) => {
   const iconLabel = copied ? 'Link copied' : 'Copy link';
 
   return (

@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 import { cn } from '../../../utils/tailwind';
 import { Icon } from '../../icon';
 
-export interface ButtonProps {
+export interface IButtonProps {
   /**
    * Button variant
    */
@@ -47,7 +47,7 @@ export const Button = ({
   ariaLabel,
   icon,
   onClick,
-}: ButtonProps) => {
+}: IButtonProps) => {
   const style = cn(
     'flex place-content-center rounded-s text-white outline-none mumble-font-label-m',
     'outline-offset-0 transition-colors duration-300 ease-in-out',

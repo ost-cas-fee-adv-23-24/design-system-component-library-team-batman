@@ -4,7 +4,7 @@ import { ComponentProps } from 'react';
 import { Icon } from '../icon';
 import { Label } from '../typography/label';
 
-export interface LinkProps {
+export interface ILinkProps {
   /**
    * variant of the link
    */
@@ -20,10 +20,10 @@ export interface LinkProps {
   /**
    * Optional click handler
    */
-  onClick?: () => ComponentProps<'button'>['onClick'];
+  onClick?: ComponentProps<'button'>['onClick'];
 }
 
-export const Link = ({ variant = 'link', disabled = false, text, onClick }: LinkProps) => {
+export const Link = ({ variant = 'link', disabled = false, text, onClick }: ILinkProps) => {
   return (
     <button
       type="button"
@@ -37,7 +37,7 @@ export const Link = ({ variant = 'link', disabled = false, text, onClick }: Link
           <Icon
             variant={variant}
             className={cn(
-              'h-[12px] w-[12px] ',
+              'h-[12px] w-[12px]',
               'mr-xxs fill-base-400 group-hover:fill-base-600',
               variant === 'profile' && 'fill-primary-600 group-hover:fill-primary-900',
             )}
