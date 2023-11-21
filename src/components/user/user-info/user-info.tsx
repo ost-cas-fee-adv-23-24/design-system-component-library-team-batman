@@ -49,10 +49,9 @@ export const UserInfo = ({ image, user, link, size = 's', centered, onSettingsCl
             href={link.href}
             target={link?.target}
             className={cn(
-              size === 's' && 'mumble-font-label-m',
-              size === 'm' && 'mumble-font-label-l',
-              size === 'l' && 'mumble-font-label-xl',
-              size === 'xl' && 'mumble-font-h3',
+              { s: 'mumble-font-label-m', m: 'mumble-font-label-l', l: 'mumble-font-label-xl', xl: 'mumble-font-h3' }[
+                size
+              ],
             )}
           >
             {user.displayName}

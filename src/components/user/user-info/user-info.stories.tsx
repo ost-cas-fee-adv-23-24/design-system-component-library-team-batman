@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import NextLink from 'next/link';
 
 import { UserInfo } from './user-info';
 
@@ -22,7 +21,6 @@ const user = {
 const link = {
   href: '/',
   target: '_blank',
-  // as: NextLink,
 };
 const image = {
   src: 'https://nextui.org/images/fruit-1.jpeg',

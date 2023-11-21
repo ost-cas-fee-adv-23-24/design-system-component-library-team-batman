@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import NextLink from 'next/link';
 
 import { UserCard } from './user-card';
 
@@ -32,7 +31,6 @@ export const Default: Story = {
       link: {
         href: '/',
         target: '_blank',
-        // as: NextLink,
       },
     },
   },
