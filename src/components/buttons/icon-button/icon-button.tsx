@@ -1,6 +1,6 @@
 import cn from 'clsx';
 import { ComponentProps } from 'react';
-import { Icon, IIconProps } from '../icon';
+import { Icon, IIconProps } from '../../icon';
 
 export interface IIconButtonProps {
   /**

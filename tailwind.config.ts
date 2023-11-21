@@ -14,6 +14,7 @@ const config: Config = {
       primary: colors.violet,
       accent: colors.pink,
       base: colors.slate,
+      transparent: 'transparent',
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
