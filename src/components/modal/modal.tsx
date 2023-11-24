@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { cn } from '../../utils/tailwind';
+import { Button } from '../button';
 import { Icon } from '../icon';
 
 export interface IHeadingProps {
@@ -33,7 +34,7 @@ export interface IHeadingProps {
 export const Modal = ({ title, children, isOpen, width = 's', onClose, onSubmit }: IHeadingProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative" onClose={onClose}>
+      <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -44,10 +45,10 @@ export const Modal = ({ title, children, isOpen, width = 's', onClose, onSubmit 
           leaveTo="opacity-0"
         >
           {/* backdrop */}
-          <div className="inset-0 fixed bg-primary-600/20" aria-hidden="true" />
+          <div className="fixed inset-0 bg-primary-600/20" aria-hidden="true" />
         </Transition.Child>
         {/* modal wrapper */}
-        <div className="inset-0 fixed grid min-h-full place-items-end md:place-items-center">
+        <div className="fixed inset-0 grid min-h-full place-items-end md:place-items-center">
           <div
             className={cn(
               'w-full',
@@ -86,23 +87,12 @@ export const Modal = ({ title, children, isOpen, width = 's', onClose, onSubmit 
                   {children}
                   {/* button area */}
                   <div className="mt-xxl grid grid-cols-1 gap-s md:grid-cols-2">
-                    {/* // TODO: wait for  button component */}
-                    <button
-                      type="button"
-                      className="flex place-items-center justify-center gap-s rounded-s bg-base-500 p-xs text-white"
-                      onClick={onClose}
-                    >
+                    <Button icon="cancel" variant="secondary" onClick={onClose}>
                       Abbrechen
-                      <Icon variant="cancel" size="s" className="fill-white" />
-                    </button>
-                    <button
-                      type="button"
-                      className="flex place-items-center justify-center gap-s rounded-s bg-primary-500 p-xs text-white"
-                      onClick={onSubmit}
-                    >
+                    </Button>
+                    <Button icon="checkmark" onClick={onSubmit}>
                       Speichern
-                      <Icon variant="checkmark" size="s" className="fill-white" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </Dialog.Panel>

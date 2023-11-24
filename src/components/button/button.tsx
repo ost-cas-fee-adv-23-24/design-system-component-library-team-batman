@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
-import { cn } from '../../../utils/tailwind';
-import { Icon } from '../../icon';
+import { cn } from '../../utils/tailwind';
+import { Icon } from '../icon';
 
 export interface IButtonProps {
   /**
    * Button variant
    */
-  variant?: 'primary' | 'secondary' | 'gradient';
+  variant?: 'primary' | 'secondary' | 'tertiary';
   /**
    * How large should the button be?
    */
@@ -64,7 +64,7 @@ export const Button = ({
         'hover:bg-base-700 hover:ring-[3px] hover:ring-base-100',
         'focus:bg-base-700 focus:ring-4 focus:ring-base-100 ',
       ],
-      gradient: [
+      tertiary: [
         'mumble-gradient',
         'hover:ring-[3px] hover:ring-primary-100 hover:mumble-gradient-hover',
         'focus:ring-primary-100 focus:mumble-gradient-focus active:ring-4',

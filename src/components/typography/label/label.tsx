@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, ElementType } from 'react';
 import { cn } from '../../../utils/tailwind';
 
 export interface ILabelProps extends ComponentProps<'label'> {
@@ -10,11 +10,13 @@ export interface ILabelProps extends ComponentProps<'label'> {
    * Label font size
    */
   size: 's' | 'm' | 'l' | 'xl';
+
+  as?: ElementType;
 }
 
-export const Label = ({ children, size, className, ...rest }: ILabelProps) => {
+export const Label = ({ children, size, className, as: Component = 'label', ...rest }: ILabelProps) => {
   const style = cn(
-    'text-base-600',
+    'text-inherit',
     size === 's' && 'mumble-font-label-s',
     size === 'm' && 'mumble-font-label-m',
     size === 'l' && 'mumble-font-label-l',
@@ -23,8 +25,8 @@ export const Label = ({ children, size, className, ...rest }: ILabelProps) => {
   );
 
   return (
-    <label className={style} {...rest}>
+    <Component className={style} {...rest}>
       {children}
-    </label>
+    </Component>
   );
 };

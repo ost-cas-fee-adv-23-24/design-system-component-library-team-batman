@@ -35,11 +35,15 @@ export interface IIconProps extends ComponentProps<'svg'> {
    * Size of the icon
    */
   size?: 's' | 'm' | 'l';
+  /**
+   * Optional: add accessibility attributes
+   */
+  accessibileTitle?: boolean;
 }
 
-export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) => {
+export const Icon = ({ size = 's', variant, className, accessibileTitle = false, ...rest }: IIconProps) => {
   const style = cn(
-    'fill-base-600',
+    'fill-inherit',
     size === 's' && 'h-s w-s',
     size === 'm' && 'h-m w-m',
     size === 'l' && 'h-l w-l',
@@ -349,13 +353,13 @@ export const Icon = ({ size = 's', variant, className, ...rest }: IIconProps) =>
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      role="img"
       fill="currentColor"
       viewBox="0 0 16 16"
       className={style}
+      role="img"
       {...rest}
     >
-      <title>{variant}</title>
+      {accessibileTitle && <title>{variant}</title>}
       <SvgContent />
     </svg>
   );

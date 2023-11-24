@@ -1,6 +1,6 @@
 import { IImageProps, Image } from '..';
 import { cn } from '../../../utils/tailwind';
-import { IIconButtonProps, IconButton } from '../../buttons/icon-button';
+import { IIconButtonProps, IconButton } from '../../button/icon-button';
 
 export interface IAvatarProps {
   image: Omit<IImageProps, 'imagePlacing' | 'rounded' | 'zoom'>;

@@ -20,7 +20,7 @@ export const Heading = ({ children, level, visualLevel, className, ...rest }: IH
   const CustomTag = `h${level}` as ElementType;
   const currentVisualLevel = visualLevel || level;
   const style = cn(
-    'text-base-600',
+    'text-inherit',
     currentVisualLevel === 1 && 'mumble-font-h1',
     currentVisualLevel === 2 && 'mumble-font-h2',
     currentVisualLevel === 3 && 'mumble-font-h3',
