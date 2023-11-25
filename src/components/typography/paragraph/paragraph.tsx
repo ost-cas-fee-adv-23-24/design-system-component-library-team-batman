@@ -14,7 +14,7 @@ export interface IParagraphProps extends ComponentProps<'p'> {
 
 export const Paragraph = ({ children, size, className, ...rest }: IParagraphProps) => {
   const style = cn(
-    'text-base-600',
+    'text-inherit',
     size === 'm' && 'mumble-font-paragraph-m',
     size === 'l' && 'mumble-font-paragraph-l',
     className,

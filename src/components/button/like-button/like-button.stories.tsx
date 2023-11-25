@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LikeButton } from './like-button';
 
 const meta = {
-  title: 'Component/Buttons/LikeButton',
+  title: 'Component/Button/LikeButton',
   component: LikeButton,
   parameters: {
     layout: 'centered',
@@ -24,17 +24,12 @@ export const Unliked: Story = {
 export const LikedByUser: Story = {
   args: {
     isLikedByUser: true,
-  },
-};
-
-export const Like: Story = {
-  args: {
     likes: 1,
   },
 };
 
-export const Likes: Story = {
+export const NotLikedByUser: Story = {
   args: {
-    likes: 12,
+    likes: 42,
   },
 };

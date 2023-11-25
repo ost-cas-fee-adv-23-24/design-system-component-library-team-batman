@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect, useState } from 'react';
+import { Button } from '../button';
 import { Modal } from './modal';
 
 const meta = {
@@ -24,13 +25,8 @@ const Template: Story['render'] = (args) => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(!isOpen)}>open modal</button>
-      <Modal
-        {...args}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(!args.isOpen)}
-        onSubmit={() => setIsOpen(!args.isOpen)}
-      />
+      <Button onClick={() => setIsOpen(!isOpen)}>open modal</Button>
+      <Modal {...args} isOpen={isOpen} onClose={() => setIsOpen(false)} onSubmit={() => setIsOpen(false)} />
     </>
   );
 };
@@ -38,7 +34,7 @@ const Template: Story['render'] = (args) => {
 export const Default: Story = {
   render: Template,
   args: {
-    isOpen: true,
+    isOpen: false,
     width: 's',
     title: 'Modal Title',
     children: <div>Modal Content</div>,

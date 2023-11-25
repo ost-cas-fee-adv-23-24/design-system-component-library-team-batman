@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './button';
 
 const meta = {
-  title: 'Component/Buttons/Button',
+  title: 'Component/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -32,7 +32,7 @@ export const Secondary: Story = {
 export const Gradient: Story = {
   args: {
     children: 'Button',
-    variant: 'gradient',
+    variant: 'tertiary',
   },
 };
 

@@ -26,14 +26,14 @@ export const Logo = ({ variant = 'primary', onClick }: ILogoProps) => {
     },
     gradient: {
       icon: 'fill-primary-600',
-      text: 'text-transparent bg-clip-text bg-gradient-to-br from-accent-400 to-primary-600',
+      text: 'text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-primary-600',
     },
   }[variant];
 
   return (
-    <button type="button" aria-label="Logo Mumble" onClick={onClick} className={'block justify-center md:flex'}>
+    <button type="button" onClick={onClick} className={'block justify-center md:flex'}>
       <Icon size="l" className={cn('mx-auto mb-xs h-[64px] w-[64px] md:mr-s', classes.icon)} variant="mumble" />
-      <Label size="l" className={cn('hidden mumble-font-h1 sm:block', classes.text)}>
+      <Label as="span" size="l" className={cn('hidden mumble-font-h1 sm:block', classes.text)}>
         Mumble
       </Label>
     </button>

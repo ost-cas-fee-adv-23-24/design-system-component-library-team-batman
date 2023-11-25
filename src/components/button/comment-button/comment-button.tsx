@@ -21,7 +21,6 @@ export interface ICommentButtonProps {
 
 export const CommentButton = ({ disabled = false, comments = 0, onClick }: ICommentButtonProps) => {
   const isCommented = comments > 0;
-
   const iconLabel = isCommented ? `${comments.toString()} Comments` : 'Comment';
 
   return (
@@ -42,12 +41,12 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
         variant={!isCommented ? 'reply' : 'reply-filled'}
       />
       <Label
+        as="span"
         size="m"
         className={cn(
           'ml-xs',
           'transition-colors duration-300 ease-in-out',
-          !disabled && 'group-hover:text-primary-600',
-          !disabled && 'cursor-pointer',
+          !disabled && 'cursor-pointer group-hover:text-primary-600',
         )}
       >
         {iconLabel}

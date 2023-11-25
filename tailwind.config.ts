@@ -15,6 +15,7 @@ const config: Config = {
       accent: colors.pink,
       base: colors.slate,
       transparent: 'transparent',
+      inherit: 'inherit',
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],

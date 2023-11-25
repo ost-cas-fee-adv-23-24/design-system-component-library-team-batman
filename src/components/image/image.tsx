@@ -141,7 +141,6 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
           </>
         )}
         <ImagePreview
-          // fill
           alt={alt}
           src={src}
           as={Component}
