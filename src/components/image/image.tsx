@@ -1,3 +1,4 @@
+'use client';
 import { ComponentProps, ComponentPropsWithRef, ElementType, forwardRef, useState } from 'react';
 import { cn } from '../../utils/tailwind';
 import { Icon } from '../icon';

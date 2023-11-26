@@ -30,25 +30,19 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'group flex rounded-m pb-xs pl-s pr-s pt-xs',
+        'flex gap-xs rounded-m px-[12px] py-xs',
         'transition-colors duration-300 ease-in-out',
-        !disabled && 'hover:bg-accent-50',
+        'transition-all duration-300 ease-in-out',
+        'fill-base-600 text-base-600',
+        !disabled && 'cursor-pointer hover:bg-primary-50 hover:fill-primary-600 hover:text-primary-600',
       )}
     >
       <Icon
         size="s"
-        className={cn(!disabled && 'group-hover:fill-primary-600', isCommented && 'fill-primary-600')}
+        className={cn(isCommented && 'fill-primary-600')}
         variant={!isCommented ? 'reply' : 'reply-filled'}
       />
-      <Label
-        as="span"
-        size="m"
-        className={cn(
-          'ml-xs',
-          'transition-colors duration-300 ease-in-out',
-          !disabled && 'cursor-pointer group-hover:text-primary-600',
-        )}
-      >
+      <Label as="span" size="m">
         {iconLabel}
       </Label>
     </button>

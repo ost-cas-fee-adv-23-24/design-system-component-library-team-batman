@@ -2,6 +2,7 @@ const config = {
   rules: {
     'prettier/prettier': 0,
     'check-file/no-index': 0,
+    'newline-before-return': 0,
     'check-file/folder-match-with-fex': 0,
     'check-file/filename-blocklist': [
       'error',

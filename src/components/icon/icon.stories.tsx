@@ -14,64 +14,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ChangeColorByClass: Story = {
-  name: 'ℹ️ set color by class',
-  args: {
-    variant: 'mumble',
-    size: 'l',
-    className: 'fill-accent-600',
-  },
-  argTypes: {
-    className: {
-      name: 'First dash style',
-      options: ['fill-accent-600', 'fill-accent-300', 'fill-primary-600', 'fill-primary-300'],
-      control: 'select',
-    },
-  },
-};
-
-export const ChangeSizeByClass: Story = {
-  name: 'ℹ️ set size by class',
-  args: {
-    variant: 'mumble',
-    size: 'l',
-    className: 'w-[150px] h-[150px]',
-  },
-  argTypes: {
-    className: {
-      name: 'First dash style',
-      options: ['w-[150px] h-[150px]', 'w-[400px] h-[400px]'],
-      control: 'select',
-    },
-  },
-};
-
-export const AnimatedSettings: Story = {
-  name: '✨ animated settings',
-  render: (args) => (
-    <div className="duration-300 hover:rotate-90">
-      <Icon {...args} />
-    </div>
-  ),
-  args: {
-    variant: 'settings',
-    size: 'l',
-  },
-};
-
-export const AnimatedLogut: Story = {
-  name: '✨ animated logout',
-  render: (args) => (
-    <div className="group">
-      <Icon {...args} />
-    </div>
-  ),
-  args: {
-    variant: 'logout-animated',
-    size: 'l',
-  },
-};
-
 export const Mumble: Story = {
   args: {
     variant: 'mumble',
@@ -236,6 +178,64 @@ export const ArrowLeft: Story = {
 export const ArrowRight: Story = {
   args: {
     variant: 'arrow-right',
+    size: 'l',
+  },
+};
+
+export const ChangeColorByClass: Story = {
+  name: 'ℹ️ set color by class',
+  args: {
+    variant: 'mumble',
+    size: 'l',
+    className: 'fill-accent-600',
+  },
+  argTypes: {
+    className: {
+      name: 'First dash style',
+      options: ['fill-accent-600', 'fill-accent-300', 'fill-primary-600', 'fill-primary-300'],
+      control: 'select',
+    },
+  },
+};
+
+export const ChangeSizeByClass: Story = {
+  name: 'ℹ️ set size by class',
+  args: {
+    variant: 'mumble',
+    size: 'l',
+    className: 'w-[150px] h-[150px]',
+  },
+  argTypes: {
+    className: {
+      name: 'First dash style',
+      options: ['w-[150px] h-[150px]', 'w-[400px] h-[400px]'],
+      control: 'select',
+    },
+  },
+};
+
+export const AnimatedSettings: Story = {
+  name: '✨ animated settings',
+  render: (args) => (
+    <div className="duration-300 hover:rotate-90">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'settings',
+    size: 'l',
+  },
+};
+
+export const AnimatedLogut: Story = {
+  name: '✨ animated logout',
+  render: (args) => (
+    <div className="group">
+      <Icon {...args} />
+    </div>
+  ),
+  args: {
+    variant: 'logout-animated',
     size: 'l',
   },
 };

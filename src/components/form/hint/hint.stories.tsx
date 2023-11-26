@@ -5,7 +5,7 @@ import { Hint } from './hint';
 const meta = {
   title: 'Component/Form/Hint',
   component: Hint,
-  parameters: {},
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {},
 } satisfies Meta<typeof Hint>;

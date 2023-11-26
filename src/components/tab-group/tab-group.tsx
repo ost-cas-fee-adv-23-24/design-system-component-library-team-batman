@@ -1,8 +1,11 @@
+'use client';
 /* eslint-disable react/forbid-component-props */
 import { Tab } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { cn } from '../../utils/tailwind';
+
 export interface ITabGroupProps {
   /**
    * Collection of tabs to display, onClick handler
@@ -19,7 +22,7 @@ export const TabGroup = ({ tabs = [] }: ITabGroupProps) => {
   const [mouseHover, setMouseHover] = useState<number | undefined>(undefined);
   const findSelectedTab = tabs.findIndex((tab) => tab.selected) !== -1 ? tabs.findIndex((tab) => tab.selected) : 0;
   const [currentSelected, setCurrentSelected] = useState<number>(findSelectedTab);
-  const uuid = useRef(crypto.randomUUID());
+  const uuid = useRef(uuidv4());
 
   useEffect(() => {
     setCurrentSelected(findSelectedTab);

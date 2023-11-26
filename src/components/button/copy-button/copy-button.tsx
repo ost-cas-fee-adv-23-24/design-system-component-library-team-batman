@@ -1,5 +1,5 @@
+'use client';
 import cn from 'clsx';
-
 import { useState } from 'react';
 import { Icon } from '../../icon';
 import { Label } from '../../typography/label';
@@ -46,18 +46,14 @@ export const CopyButton = ({
       onClick={handleClick}
       disabled={disabled}
       className={cn(
-        'group flex rounded-m pb-xs pl-s pr-s pt-xs',
-        'transition-colors duration-300 ease-in-out',
-        !disabled && 'hover:bg-base-100',
+        'flex gap-xs rounded-m px-[12px] py-xs',
+        'fill-base-600 text-base-600 transition-all duration-300 ease-in-out',
+        !disabled && 'cursor-pointer hover:bg-base-100 hover:fill-base-700 hover:text-base-700',
         isCopy && 'bg-base-100',
       )}
     >
       <Icon size="s" variant="share" />
-      <Label
-        as="span"
-        size="m"
-        className={cn('ml-xs', 'transition-colors duration-300 ease-in-out', !disabled && 'cursor-pointer')}
-      >
+      <Label as="span" size="m">
         {iconLabel}
       </Label>
     </button>

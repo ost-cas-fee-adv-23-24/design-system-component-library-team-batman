@@ -8,7 +8,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Design-Tokens',
-          ['Colors', 'Typography', 'Spacing', 'Border-Radius'],
+          ['Colors', 'Typography', 'Spacing', 'Border'],
           'Component',
           ['Button', 'Typography', 'Form', 'Link', 'Image'],
           'Others',

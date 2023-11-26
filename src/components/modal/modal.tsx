@@ -4,7 +4,7 @@ import { cn } from '../../utils/tailwind';
 import { Button } from '../button';
 import { Icon } from '../icon';
 
-export interface IHeadingProps {
+export interface IModalProps {
   /**
    * Modal content
    */
@@ -31,7 +31,7 @@ export interface IHeadingProps {
   onSubmit: () => void;
 }
 
-export const Modal = ({ title, children, isOpen, width = 's', onClose, onSubmit }: IHeadingProps) => {
+export const Modal = ({ title, children, isOpen, width = 's', onClose, onSubmit }: IModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
