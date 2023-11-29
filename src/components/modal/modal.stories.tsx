@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useEffect, useState } from 'react';
-import { Button } from '../button';
+import { Button } from '../buttons/button';
 import { Modal } from './modal';
 
 const meta = {

@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { IconLink } from './link-icon';
+import { LinkIcon } from './link-icon';
 
 const meta = {
-  title: 'Component/Link/IconLink',
-  component: IconLink,
+  title: 'Component/Links/LinkIcon',
+  component: LinkIcon,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof IconLink>;
+} satisfies Meta<typeof LinkIcon>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

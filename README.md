@@ -70,7 +70,7 @@ npm install
 3. Start the development mode:
 
 ```bash
-npm run storybook3
+npm run storybook
 ```
 
 4. Open [http://localhost:6006](http://localhost:6006) with your browser to see the result.

@@ -10,7 +10,7 @@ const preview: Preview = {
           'Design-Tokens',
           ['Colors', 'Typography', 'Spacing', 'Border'],
           'Component',
-          ['Button', 'Typography', 'Form', 'Link', 'Image'],
+          ['Buttons', 'Typography', 'Form', 'Links'],
           'Others',
         ],
       },

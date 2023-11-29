@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { CommentButton } from './comment-button';
 
 const meta = {
-  title: 'Component/Button/CommentButton',
+  title: 'Component/Buttons/CommentButton',
   component: CommentButton,
   parameters: {
     layout: 'centered',

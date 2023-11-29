@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { cn } from '../../utils/tailwind';
-import { Button } from '../button';
+import { Button } from '../buttons/button';
 import { Icon } from '../icon';
 
 export interface IModalProps {

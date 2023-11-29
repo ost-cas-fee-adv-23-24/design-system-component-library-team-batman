@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import NextImage from 'next/image';
-
 import { Avatar } from './avatar';
 
 const meta = {
-  title: 'Component/Image/Avatar',
+  title: 'Component/Avatar',
   component: Avatar,
   parameters: {
     layout: 'centered',
