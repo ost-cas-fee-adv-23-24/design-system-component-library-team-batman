@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button } from './button';
 
 const meta = {
-  title: 'Component/Button',
+  title: 'Component/Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -29,7 +28,7 @@ export const Secondary: Story = {
   },
 };
 
-export const Gradient: Story = {
+export const Tertiary: Story = {
   args: {
     children: 'Button',
     variant: 'tertiary',
@@ -53,6 +52,15 @@ export const FullWidth: Story = {
     variant: 'primary',
     icon: 'mumble',
     fullWidth: true,
+  },
+};
+
+export const SizeL: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    fullWidth: true,
+    size: 'l',
   },
 };
 

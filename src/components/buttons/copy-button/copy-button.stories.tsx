@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { CopyButton } from './copy-button';
 
 const meta = {
-  title: 'Component/Button/CopyButton',
+  title: 'Component/Buttons/CopyButton',
   component: CopyButton,
   parameters: {
     layout: 'centered',

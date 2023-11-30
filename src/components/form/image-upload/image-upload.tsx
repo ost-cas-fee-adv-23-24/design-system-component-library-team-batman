@@ -1,9 +1,10 @@
+'use client';
 import { ComponentPropsWithRef, forwardRef, useRef, useState } from 'react';
 import { Hint, Paragraph } from '../../..';
 import { cn } from '../../../utils/tailwind';
 import { Icon } from '../../icon';
 
-export interface IImageUpload
+export interface IImageUploadProps
   extends Omit<ComponentPropsWithRef<'input'>, 'type' | 'className' | 'accept' | 'aria-hidden' | 'label'> {
   id: string;
   name: string;
@@ -11,7 +12,7 @@ export interface IImageUpload
   disabled?: boolean;
 }
 
-export const ImageUpload = forwardRef<HTMLInputElement, IImageUpload>(
+export const ImageUpload = forwardRef<HTMLInputElement, IImageUploadProps>(
   ({ name, error, disabled, id, onChange, ...rest }, ref) => {
     const labelRef = useRef<HTMLLabelElement>(null);
     const [state, setState] = useState({

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Heading } from './heading';
 
 const meta = {
@@ -14,22 +13,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const ChangeColorByClass: Story = {
-  name: 'ℹ️ set color by class',
-  args: {
-    level: 1,
-    children: 'This is a text',
-    className: 'text-accent-600',
-  },
-  argTypes: {
-    className: {
-      name: 'First dash style',
-      options: ['text-accent-600', 'text-accent-300', 'text-primary-600', 'text-primary-300'],
-      control: 'select',
-    },
-  },
-};
 
 export const H1: Story = {
   args: {
@@ -56,5 +39,21 @@ export const H4: Story = {
   args: {
     children: 'Heading h4',
     level: 4,
+  },
+};
+
+export const ChangeColorByClass: Story = {
+  name: 'ℹ️ set color by class',
+  args: {
+    level: 1,
+    children: 'This is a text',
+    className: 'text-accent-600',
+  },
+  argTypes: {
+    className: {
+      name: 'First dash style',
+      options: ['text-accent-600', 'text-accent-300', 'text-primary-600', 'text-primary-300'],
+      control: 'select',
+    },
   },
 };

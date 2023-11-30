@@ -1,5 +1,4 @@
 import cn from 'clsx';
-
 import { ComponentProps } from 'react';
 import { Icon } from '../icon';
 import { Label } from '../typography/label';

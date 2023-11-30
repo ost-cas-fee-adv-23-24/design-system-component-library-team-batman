@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Link } from './link';
 
 const meta = {
-  title: 'Component/Link',
+  title: 'Component/Links/Link',
   component: Link,
   parameters: {
     layout: 'centered',

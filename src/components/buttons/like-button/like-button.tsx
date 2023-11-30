@@ -1,9 +1,10 @@
+'use client';
 import cn from 'clsx';
 import { useState } from 'react';
 import { Label } from '../../..';
 import { Icon } from '../../icon';
 
-export interface LikeButtonProps {
+export interface ILikeButtonProps {
   /**
    * liked by user
    */
@@ -32,7 +33,7 @@ export const LikeButton = ({
   isLikedByUser,
   onLikeRemove,
   onLikeAdd,
-}: LikeButtonProps) => {
+}: ILikeButtonProps) => {
   const [variant, setVariant] = useState<'unliked' | 'like' | 'like-animated'>(likes > 0 ? 'like' : 'unliked');
   const [isLiked, setIsLiked] = useState(isLikedByUser);
   const [likesCount, setLikesCount] = useState(likes);
