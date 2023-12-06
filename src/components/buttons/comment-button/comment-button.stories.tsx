@@ -17,14 +17,32 @@ type Story = StoryObj<typeof meta>;
 
 export const NoComments: Story = {
   args: {},
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=415-23&mode=design&t=mXweN60cZx7FXUNd-4',
+    },
+  },
 };
 export const Comments: Story = {
   args: {
-    comments: 254,
+    comments: 32,
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=427-343&mode=design&t=mXweN60cZx7FXUNd-4',
+    },
   },
 };
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=415-23&mode=design&t=mXweN60cZx7FXUNd-4',
+    },
   },
 };

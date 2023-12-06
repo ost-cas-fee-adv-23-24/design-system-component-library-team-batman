@@ -10,6 +10,10 @@ const meta = {
         component: 'ℹ️ the props are extended from the native textarea element',
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=427-334&mode=design&t=GDqZCay2N1L6qF3l-4',
+    },
   },
   tags: ['autodocs'],
   argTypes: {},

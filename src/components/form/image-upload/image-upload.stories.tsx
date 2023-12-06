@@ -11,6 +11,10 @@ const meta = {
           'ℹ️ the props are extended from the native input element  \nℹ️ only accepts image files (png & jpg) and max size 50 MB',
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=521-4209&mode=design&t=GDqZCay2N1L6qF3l-4',
+    },
   },
   tags: ['autodocs'],
   argTypes: {},
