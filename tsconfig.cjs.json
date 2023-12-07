@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist/cjs"
+  }
+}
