@@ -6,6 +6,10 @@ const meta = {
   component: Paragraph,
   parameters: {
     layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=407-112&mode=design&t=GDqZCay2N1L6qF3l-4',
+    },
   },
   tags: ['autodocs'],
   argTypes: {},

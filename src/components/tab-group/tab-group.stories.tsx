@@ -5,7 +5,12 @@ import { TabGroup } from './tab-group';
 const meta = {
   title: 'Component/TabGroup',
   component: TabGroup,
-  parameters: {},
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?type=design&node-id=488-1485&mode=design&t=GDqZCay2N1L6qF3l-4',
+    },
+  },
   tags: ['autodocs'],
   argTypes: {},
 } satisfies Meta<typeof TabGroup>;

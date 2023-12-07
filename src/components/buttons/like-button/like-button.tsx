@@ -27,10 +27,17 @@ export interface ILikeButtonProps {
   onLikeRemove?: () => Promise<void>;
 }
 
+const likesText = (likesCounter: number) => {
+  if (likesCounter === 1) {
+    return '1 Like';
+  }
+  return likesCounter > 0 ? `${likesCounter.toString()} Likes` : 'Like';
+};
+
 export const LikeButton = ({
   disabled = false,
   likes = 0,
-  isLikedByUser,
+  isLikedByUser = false,
   onLikeRemove,
   onLikeAdd,
 }: ILikeButtonProps) => {
@@ -55,8 +62,7 @@ export const LikeButton = ({
     }
     setIsDisabled(false);
   };
-
-  const iconLabel = variant === 'like-animated' ? 'Liked' : likesCount > 0 ? `${likesCount.toString()} Likes` : 'Like';
+  const iconLabel = variant === 'like-animated' ? 'Liked' : likesText(likesCount);
 
   return (
     <button
