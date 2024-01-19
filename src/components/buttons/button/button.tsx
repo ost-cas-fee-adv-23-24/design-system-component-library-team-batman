@@ -9,6 +9,10 @@ export interface IButtonProps {
    */
   variant?: 'primary' | 'secondary' | 'tertiary';
   /**
+   * Button type
+   */
+  type?: HTMLButtonElement['type'];
+  /**
    * How large should the button be?
    */
   size?: 'm' | 'l';
@@ -43,6 +47,7 @@ export const Button = ({
   size = 'm',
   disabled = false,
   fullWidth = false,
+  type = 'button',
   children,
   ariaLabel,
   icon,
@@ -78,7 +83,7 @@ export const Button = ({
 
   return (
     <button
-      type="button"
+      type={type}
       aria-label={ariaLabel || children}
       onClick={onClick}
       disabled={disabled}
