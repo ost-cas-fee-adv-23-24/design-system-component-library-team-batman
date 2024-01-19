@@ -1,3 +1,4 @@
+'use client';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { cn } from '../../utils/tailwind';
