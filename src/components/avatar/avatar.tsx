@@ -12,7 +12,7 @@ export const Avatar = ({ image, size = 'm', onEdit }: IAvatarProps) => {
   return (
     <div
       className={cn(
-        'relative grid aspect-square rounded-full border-[6px] border-base-100 bg-primary-200',
+        'relative grid aspect-square rounded-full border-[6px] border-base-100',
         size === 's' && 'h-[40px] border-none',
         size === 'm' && 'h-[64px]',
         size === 'l' && 'h-[96px]',

@@ -20,11 +20,11 @@ export interface ILikeButtonProps {
   /**
    * increment Likes
    */
-  onLikeAdd?: () => Promise<void>;
+  onLikeAdd?: () => void;
   /**
    * decrement Likes
    */
-  onLikeRemove?: () => Promise<void>;
+  onLikeRemove?: () => void;
 }
 
 const likesText = (likesCounter: number) => {
@@ -51,12 +51,12 @@ export const LikeButton = ({
     if (isLiked) {
       setIsLiked(false);
       setLikesCount(likesCount - 1);
-      await onLikeRemove?.();
+      onLikeRemove?.();
     } else {
       setIsLiked(true);
       setVariant('like-animated');
       setLikesCount(likesCount + 1);
-      await onLikeAdd?.();
+      onLikeAdd?.();
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setVariant('like');
     }
@@ -70,7 +70,7 @@ export const LikeButton = ({
       onClick={handleLike}
       disabled={isDisabled}
       className={cn(
-        'group flex rounded-m pb-xs pl-s pr-s pt-xs',
+        'group flex rounded-m px-[12px] py-xs',
         'transition-colors duration-300 ease-in-out',
         !isDisabled && 'hover:bg-accent-50',
       )}
