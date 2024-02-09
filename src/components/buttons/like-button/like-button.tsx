@@ -52,6 +52,7 @@ export const LikeButton = ({
 
   useEffect(() => {
     setIsLiked(isLikedByUser);
+    setVariant(isLikedByUser ? 'like' : 'unliked');
   }, [isLikedByUser]);
 
   const handleLike = async () => {
