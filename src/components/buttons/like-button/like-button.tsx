@@ -1,6 +1,6 @@
 'use client';
 import cn from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Label } from '../../..';
 import { Icon } from '../../icon';
 
@@ -46,6 +46,10 @@ export const LikeButton = ({
   const [likesCount, setLikesCount] = useState(likes);
   const [isDisabled, setIsDisabled] = useState(disabled);
 
+  useEffect(() => {
+    setLikesCount(likes);
+  }, [likes]);
+
   const handleLike = async () => {
     setIsDisabled(true);
     if (isLiked) {
@@ -56,8 +60,8 @@ export const LikeButton = ({
       setIsLiked(true);
       setVariant('like-animated');
       setLikesCount(likesCount + 1);
-      onLikeAdd?.();
       await new Promise((resolve) => setTimeout(resolve, 2000));
+      onLikeAdd?.();
       setVariant('like');
     }
     setIsDisabled(false);
