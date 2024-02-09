@@ -50,6 +50,10 @@ export const LikeButton = ({
     setLikesCount(likes);
   }, [likes]);
 
+  useEffect(() => {
+    setIsLiked(isLikedByUser);
+  }, [isLikedByUser]);
+
   const handleLike = async () => {
     setIsDisabled(true);
     if (isLiked) {
