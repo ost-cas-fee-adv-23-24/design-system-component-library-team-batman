@@ -45,6 +45,14 @@ export const L: Story = {
   },
 };
 
+export const XLWithEdit: Story = {
+  args: {
+    image: { src, alt },
+    size: 'xl',
+    edit: true,
+  },
+};
+
 export const XL: Story = {
   args: {
     image: { src, alt },
