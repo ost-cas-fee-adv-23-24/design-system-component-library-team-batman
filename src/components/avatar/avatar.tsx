@@ -6,9 +6,10 @@ export interface IAvatarProps {
   image: Omit<IImageProps, 'imagePlacing' | 'rounded' | 'zoom'>;
   size?: 's' | 'm' | 'l' | 'xl';
   onEdit?: IIconButtonProps['onClick'];
+  edit?: boolean;
 }
 
-export const Avatar = ({ image, size = 'm', onEdit }: IAvatarProps) => {
+export const Avatar = ({ image, size = 'm', onEdit, edit = false }: IAvatarProps) => {
   return (
     <div
       className={cn(
@@ -20,7 +21,7 @@ export const Avatar = ({ image, size = 'm', onEdit }: IAvatarProps) => {
       )}
     >
       <Image {...image} imagePlacing="cover" rounded="full" zoom={size === 'xl' ? undefined : 'in'} />
-      {size === 'xl' && <IconButton variant="edit" className="absolute bottom-0 right-0" onClick={onEdit} />}
+      {edit && <IconButton variant="edit" className="absolute bottom-0 right-0" onClick={onEdit} />}
     </div>
   );
 };

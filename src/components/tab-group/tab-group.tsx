@@ -39,7 +39,7 @@ export const TabGroup = ({ tabs = [] }: ITabGroupProps) => {
       selectedIndex={currentSelected}
     >
       {/* pseudo element for animation */}
-      <div className="flex select-none rounded-s bg-base-100 p-xxs" aria-hidden="true">
+      <div className="flex select-none rounded-s bg-base-200 p-xxs" aria-hidden="true">
         {tabs.map((tab, index) => (
           <div
             key={`${tab.text}-${index}}`}
