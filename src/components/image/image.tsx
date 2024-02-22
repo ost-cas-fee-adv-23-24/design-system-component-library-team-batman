@@ -62,7 +62,6 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
     },
     ref,
   ) => {
-    const [isLoaded, setIsLoaded] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
 
     const roundedStyle = cn(
@@ -70,10 +69,6 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
       rounded === 'm' && 'rounded-m',
       rounded === 'full' && 'rounded-full',
     );
-
-    const handleLoad = () => {
-      setIsLoaded(true);
-    };
 
     return (
       <div
@@ -98,14 +93,12 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
             'h-full transform transition-all duration-500 ease-in-out',
             zoom === 'in' && 'group-hover:scale-110',
             zoom === 'out' && 'scale-110 group-hover:scale-100',
-            !isLoaded && 'blur-sm filter',
             roundedStyle,
             className,
           )}
-          onLoad={handleLoad}
           {...rest}
         />
-        {isLoaded && (clickToPreview || onEdit) && (
+        {(clickToPreview || onEdit) && (
           <>
             <button
               className="absolute inset-0 grid cursor-pointer place-items-center outline-none transition-all duration-300 ease-in-out group-hover:bg-primary-600/40"
