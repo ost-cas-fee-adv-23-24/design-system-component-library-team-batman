@@ -87,7 +87,7 @@ export const LikeButton = ({
       <Icon
         size="s"
         className={cn(
-          variant === 'unliked' ? 'fill-base-500' : 'fill-accent-500',
+          likesCount > 0 ? 'fill-accent-500' : 'fill-base-500',
           'group-hover:fill-accent-500',
           'transition-colors duration-300 ease-in-out',
         )}
@@ -97,7 +97,7 @@ export const LikeButton = ({
         as="span"
         size="m"
         className={cn(
-          variant === 'unliked' ? 'text-base-600' : 'text-accent-900',
+          likesCount > 0 ? 'text-accent-900' : 'text-base-600',
           !isDisabled && 'cursor-pointer group-hover:text-accent-600',
           'ml-xs',
           'transition-colors duration-300 ease-in-out',
