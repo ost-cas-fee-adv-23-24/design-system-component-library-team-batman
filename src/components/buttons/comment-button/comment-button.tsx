@@ -20,7 +20,7 @@ export interface ICommentButtonProps {
 
 export const CommentButton = ({ disabled = false, comments = 0, onClick }: ICommentButtonProps) => {
   const isCommented = comments > 0;
-  const iconLabel = isCommented ? `${comments.toString()} Comments` : 'Comment';
+  const iconLabel = isCommented ? ` Comments` : 'Comment';
 
   return (
     <button
@@ -41,8 +41,9 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
         className={cn(isCommented && 'fill-primary-600')}
         variant={!isCommented ? 'reply' : 'reply-filled'}
       />
-      <Label as="span" size="m" className="hidden sm:block">
-        {iconLabel}
+      <Label as="span" size="m">
+        {comments > 0 && <span>{comments}</span>}
+        <span className="hidden sm:inline">{iconLabel}</span>
       </Label>
     </button>
   );

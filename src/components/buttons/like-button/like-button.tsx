@@ -31,7 +31,7 @@ const likesText = (likesCounter: number) => {
   if (likesCounter === 1) {
     return ' Like';
   }
-  return likesCounter > 0 ? ` Likes` : ' Like';
+  return likesCounter > 0 ? ` Likes` : 'Like';
 };
 
 export const LikeButton = ({
@@ -100,11 +100,11 @@ export const LikeButton = ({
           variant === 'unliked' ? 'text-base-600' : 'text-accent-900',
           !isDisabled && 'cursor-pointer group-hover:text-accent-600',
           'ml-xs',
-          'hidden transition-colors duration-300 ease-in-out md:block',
+          'transition-colors duration-300 ease-in-out',
         )}
       >
-        <span>{likesCount}</span>
-        {iconLabel}
+        {likesCount > 0 && variant !== 'like-animated' && <span>{likesCount}</span>}
+        <span className="hidden sm:inline">{iconLabel}</span>
       </Label>
     </button>
   );
