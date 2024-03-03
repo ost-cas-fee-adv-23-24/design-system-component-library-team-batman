@@ -1,11 +1,11 @@
-import { ComponentProps, ElementType } from 'react';
+import { ComponentProps, ElementType, ReactNode } from 'react';
 import { cn } from '../../../utils/tailwind';
 
 export interface ILabelProps extends ComponentProps<'label'> {
   /**
    * Label text
    */
-  children: string;
+  children: ReactNode;
   /**
    * Label font size
    */
