@@ -20,7 +20,7 @@ export default function ImagePreview({ src, isOpen, alt, width, height, as, onCl
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={closeModal}>
+      <Dialog as="div" className="fixed inset-0 z-[9999] overflow-y-auto" onClose={closeModal}>
         <div className="relative grid max-h-[100dvh] place-items-center">
           <Transition.Child
             as={Fragment}
