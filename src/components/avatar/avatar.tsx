@@ -14,7 +14,7 @@ export const Avatar = ({ image, size = 'm', onEdit, edit = false }: IAvatarProps
     <div
       className={cn(
         'relative grid aspect-square rounded-full border-[6px] border-base-100 bg-base-100',
-        size === 's' && 'h-[40px] border-none bg-none',
+        size === 's' && 'h-[40px] border-none bg-transparent',
         size === 'm' && 'h-[64px]',
         size === 'l' && 'h-[96px]',
         size === 'xl' && 'h-[160px]',

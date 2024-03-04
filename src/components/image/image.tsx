@@ -104,7 +104,7 @@ export const Image = forwardRef<HTMLImageElement, IImageProps>(
               className="absolute inset-0 grid cursor-pointer place-items-center outline-none transition-all duration-300 ease-in-out group-hover:bg-primary-600/40"
               onClick={(e) => (onEdit ? onEdit(e) : setIsFullScreen(true))}
               type="button"
-              title="Bild vergrössern"
+              title="Bild anpassen"
             >
               {onEdit ? (
                 <span className="rotate-12 opacity-0 duration-300 group-hover:rotate-0 group-hover:opacity-100">
