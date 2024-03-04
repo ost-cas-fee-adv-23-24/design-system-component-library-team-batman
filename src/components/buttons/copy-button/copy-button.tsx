@@ -53,7 +53,8 @@ export const CopyButton = ({
       )}
     >
       <Icon size="s" variant="share" />
-      <Label as="span" size="m" className="hidden sm:block">
+
+      <Label as="span" size="m" className={cn(!isCopy && 'hidden sm:block')}>
         {iconLabel}
       </Label>
     </button>
