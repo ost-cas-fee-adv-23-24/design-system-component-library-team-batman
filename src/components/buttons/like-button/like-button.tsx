@@ -99,12 +99,14 @@ export const LikeButton = ({
         className={cn(
           likesCount > 0 ? 'text-accent-900' : 'text-base-600',
           !isDisabled && 'cursor-pointer group-hover:text-accent-600',
-          'ml-xs',
+          'sm:ml-xs',
           'transition-colors duration-300 ease-in-out',
         )}
       >
-        {likesCount > 0 && variant !== 'like-animated' && <span>{likesCount}</span>}
-        <span className="hidden sm:inline">{iconLabel}</span>
+        {likesCount > 0 && variant !== 'like-animated' && <span className="ml-xs sm:ml-0">{likesCount}</span>}
+        <span className={cn(variant !== 'like-animated' ? 'hidden sm:ml-0 sm:inline' : 'ml-xs sm:ml-0')}>
+          {iconLabel}
+        </span>
       </Label>
     </button>
   );

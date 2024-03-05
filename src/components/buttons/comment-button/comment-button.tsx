@@ -29,7 +29,7 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'flex gap-xs rounded-m px-[12px] py-xs',
+        'flex rounded-m px-[12px] py-xs',
         'transition-colors duration-300 ease-in-out',
         'transition-all duration-300 ease-in-out',
         'fill-base-600 text-base-600',
@@ -43,7 +43,7 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
       />
       <Label as="span" size="m">
         {comments > 0 && <span>{comments}</span>}
-        <span className="hidden sm:inline">{iconLabel}</span>
+        <span className="hidden sm:ml-xs sm:inline">{iconLabel}</span>
       </Label>
     </button>
   );
