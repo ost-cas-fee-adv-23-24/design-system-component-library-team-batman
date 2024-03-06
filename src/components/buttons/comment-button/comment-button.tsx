@@ -41,9 +41,9 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
         className={cn(isCommented && 'fill-primary-600')}
         variant={!isCommented ? 'reply' : 'reply-filled'}
       />
-      <Label as="span" size="m">
+      <Label as="span" size="m" className="sm:ml-xs">
         {comments > 0 && <span className="ml-xs sm:ml-0">{comments}</span>}
-        <span className="hidden sm:ml-xs sm:inline">{iconLabel}</span>
+        <span className="hidden sm:inline">{iconLabel}</span>
       </Label>
     </button>
   );
