@@ -42,7 +42,7 @@ export const CommentButton = ({ disabled = false, comments = 0, onClick }: IComm
         variant={!isCommented ? 'reply' : 'reply-filled'}
       />
       <Label as="span" size="m">
-        {comments > 0 && <span>{comments}</span>}
+        {comments > 0 && <span className="ml-xs sm:ml-0">{comments}</span>}
         <span className="hidden sm:ml-xs sm:inline">{iconLabel}</span>
       </Label>
     </button>
