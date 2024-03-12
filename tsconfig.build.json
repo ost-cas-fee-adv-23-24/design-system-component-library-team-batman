@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "dist/cjs",
+    "declarationDir": "dist/types"
+  },
+  "files": ["src/index.ts"]
+}

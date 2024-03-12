@@ -1,0 +1,24 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#4c1d95",
+    "activityBar.activeBorder": "#ddd6fe",
+    "activityBar.foreground": "#ddd6fe",
+    "statusBar.foreground": "#ddd6fe",
+    "activityBarBadge.foreground": "#ddd6fe",
+    "titleBar.activeForeground": "#ddd6fe",
+    "titleBar.inactiveForeground": "#ddd6fe",
+    "activityBarBadge.background": "#7c3aed",
+    "statusBar.background": "#4c1d95",
+    "titleBar.activeBackground": "#4c1d95",
+    "titleBar.inactiveBackground": "#4c1d95"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
+}

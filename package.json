@@ -1,0 +1,114 @@
+{
+  "name": "@ost-cas-fee-adv-23-24/design-system-component-library-team-batman",
+  "version": "0.0.0-development",
+  "description": "Design System Component Library",
+  "keywords": [
+    "stroybook",
+    "tailwindcss",
+    "react",
+    "typescript",
+    "design system",
+    "component library"
+  ],
+  "homepage": "https://ost-cas-fee-adv-23-24.github.io/design-system-component-library-team-batman",
+  "repository": "https://github.com/ost-cas-fee-adv-23-24/design-system-component-library-team-batman",
+  "license": "MIT",
+  "author": "OST Fachhochschule - Team Batman",
+  "contributors": [
+    {
+      "name": "Albin Hoti",
+      "url": "https://github.com/onivue"
+    },
+    {
+      "name": "Ricardo Vögeli",
+      "url": "https://github.com/risuiar2023"
+    }
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./tailwind.config.ts": "./dist/tailwind.config.ts"
+  },
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "./dist/**/*"
+  ],
+  "scripts": {
+    "build": "npm run build:clear && npm run build:js && npm run build:tailwind",
+    "build:clear": "del-cli ./dist -f",
+    "build:js": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "build:storybook": "storybook build",
+    "build:tailwind": "tailwindcss -i ./src/style.css -o ./dist/style.css --minify --content './src/components/**/*.{js,ts,jsx,tsx,mdx}' && cp ./tailwind.config.ts ./dist",
+    "format": "prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "updates": "npx npm-check-updates --interactive --format group"
+  },
+  "lint-staged": {
+    "*.{css,mdx,json,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --max-warnings 0",
+      "bash -c tsc --noEmit"
+    ]
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.5",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^2.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
+    "@smartive/eslint-config": "4.0.1",
+    "@storybook/addon-a11y": "^7.5.3",
+    "@storybook/addon-designs": "^7.0.7",
+    "@storybook/addon-essentials": "7.5.3",
+    "@storybook/addon-interactions": "7.5.3",
+    "@storybook/addon-links": "7.5.3",
+    "@storybook/addon-onboarding": "1.0.8",
+    "@storybook/blocks": "7.5.3",
+    "@storybook/nextjs": "7.5.3",
+    "@storybook/react": "7.5.3",
+    "@storybook/testing-library": "0.2.2",
+    "@types/node": "20.10.0",
+    "@types/react": "18.2.38",
+    "@types/react-dom": "18.2.17",
+    "@types/uuid": "^9.0.7",
+    "autoprefixer": "10.4.16",
+    "del-cli": "5.1.0",
+    "eslint": "8.54.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-check-file": "2.6.2",
+    "eslint-plugin-storybook": "0.6.15",
+    "husky": "8.0.3",
+    "lint-staged": "15.1.0",
+    "next": "14.0.3",
+    "postcss": "8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-packagejson": "2.4.6",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "storybook": "7.5.3",
+    "tailwindcss": "3.3.5",
+    "typescript": "5.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

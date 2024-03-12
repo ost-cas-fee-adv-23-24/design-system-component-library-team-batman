@@ -1,0 +1,8 @@
+!.*
+node_modules/
+storybook-static/
+dist/
+.eslintrc.js
+.prettierrc.js
+commitlint.config.js
+postcss.config.js
