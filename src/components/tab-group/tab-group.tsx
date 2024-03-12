@@ -74,7 +74,7 @@ export const TabGroup = ({ tabs = [] }: ITabGroupProps) => {
             className={({ selected }) =>
               cn(
                 selected ? 'text-primary-600' : ' text-base-600 hover:text-base-800 ',
-                `z-10 w-full px-[10px] py-[10px] outline-none mumble-font-label-l`,
+                `z-10 w-full px-[10px] py-[10px] !outline-none mumble-font-label-l`,
               )
             }
             onMouseEnter={() => setMouseHover(index)}
